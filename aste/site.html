@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aste</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <ul class="topbar">
+        <li><a href="/">[ ЛОГО ]</a></li>
+        <div style="display: flex;">
+            <li><a class = "highlighted" href = "#home">главная</a></li>
+            <li><a href = "#services">услуги</a></li>
+            <li><a href = "#price">цены</a></li>
+            <li><a href = "#contacts">контакты</a></li>
+        </div>        
+    </ul>
+
+
+    <div id="home" class="row">
+        <div class="card tl-32 tr-12 bl-32 br-12" style="width: 67%; min-height: 600px; padding: 2% 1% 0 2%;">
+            <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="z-index: 2">
+                    <h1>
+                        Обслуживание и ремонт компьютеров,<br>
+                        настройка серверного оборудования<br>
+                        для компаний и организаций</h1>
+                    <br>
+                    <br>
+                    <h3>    
+                        Абонентское обслуживание компьютеров,<br>
+                        поддержка бухгалтерских программ,<br>
+                        настройка серверов, решение проблем с ПК<br>
+                        и не только</h3>
+                        
+                    <p class="purple-with-bg" style="padding: 0.4rem 0.5rem 0.4rem 0">
+                        Обслуживаются только юридические лица<br>и индивидуальные предприниматели</p>
+                </div>
+
+                <p class="purple-with-bg" style="z-index: 2; padding: 0.4rem 0.5rem 0.4rem 0;">
+                    ↓ подробная информация ниже</p>
+            </div>
+
+            <div class='slideshow-wrapper br-12'>
+                <img class="br-12" src='images/pic.jpg'/>
+            </div>
+        </div>
+
+        <div class="card tl-12 tr-32 bl-12 br-32" style="width: 31%; min-height: 600px;
+            height: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+            <h2 style="text-align: center;">Нужна помощь?</h2>
+            <br>
+
+            <div>
+                <p>С чем проблема?</p>
+                <select name="problems" id="problems">
+                    <option value=""></option>
+                    <option value="var1">вариант 1</option>
+                    <option value="var2">вариант 2</option>
+                    <option value="var3">вариант 3</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Что случилось?</p>
+                <select name="problems" id="problems">
+                    <option value=""></option>
+                    <option value="var1">вариант 1</option>
+                    <option value="var2">вариант 2</option>
+                    <option value="var3">вариант 3</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Ваше имя</p>
+            <input type="text" id="name" name="name">
+            </div>
+            
+            <div>
+                <p>Ваш номер</p>
+                <input type="tel" id="number" name="number"
+                    pattern="375[0-9]{9}" /*value="+375"*/ placeholder="+375000000000">
+            </div>
+            
+            <br>
+            <div class="row break-words" style="padding: 0;">
+                <button class="help-button tl-16 tr-8 bl-16 br-8"
+                    style="width: 71%;">Оставить заявку</button>
+                <button class="help-button tl-8 tr-16 bl-8 br-16"
+                    style="width: 26%;">Цены</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <h2 id="services" class="title">Предоставляемые услуги</h2>
+    <div id="price" class="row">
+        <div class="card centered tl-32 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 1</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+
+        <div class="card centered tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 2</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+
+        <div class="card centered tl-12 tr-32 bl-12 br-12" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 3</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="price" class="row">
+        <div class="card centered tl-12 tr-12 bl-32 br-12" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 4</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+
+        <div class="card centered tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 5</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+
+        <div class="card centered tl-12 tr-12 bl-12 br-32" style="width: 32%; min-height: 500px;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+                <div>
+                    <img class="services-icon"
+                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+
+                    <h3 class="services-title">Услуга 6</h3>
+
+                    <p class="services-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+                </div>
+
+                <h1 class="services-price purple">ХХ руб.</h1>
+            </div>
+        </div>
+    </div>
+
+    <p class="purple" style="text-align: center;">Все вышеперечисленные услуги входят в обслуживание компаний,
+        также возможны и другие по договорённости</p>
+
+
+    <br>
+    <br>
+    <h2 id="clients" class="title">Компании-клиенты</h2>
+
+    <div id='container'>
+        <div class='scroll'>
+            <div class='item'>Item 1</div>
+            <div class='item'>Item 2</div>
+            <div class='item'>Item 3</div>
+            <div class='item'>Item 4</div>
+            <div class='item'>Item 5</div>
+            <div class='item'>Item 6</div>
+            <div class='item'>Item 7</div>
+            <div class='item'>Item 8</div>
+            <div class='item'>Item 9</div>
+            <div class='item'>Item 10</div>
+            <div class='item'>Item 1</div>
+            <div class='item'>Item 2</div>
+            <div class='item'>Item 3</div>
+            <div class='item'>Item 4</div>
+            <div class='item'>Item 5</div>
+            <div class='item'>Item 6</div>
+            <div class='item'>Item 7</div>
+            <div class='item'>Item 8</div>
+            <div class='item'>Item 9</div>
+            <div class='item'>Item 10</div>
+        </div>
+        <div class='fade'></div>
+    </div>
+
+
+    <br>
+    <br>
+    <h2 id="adv" class="title">Преимущества</h2>
+
+    <div class="row">
+        <div class="card tl-32 tr-12 bl-12 br-12" style="width: 49%; min-height: 600px;">
+            <div class="row" style="padding: 0;">
+                <h3 class="adv-title">Преимущество 1</h3>
+                <hr class="adv-line"></hr>
+            </div>
+
+            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+        </div>
+
+        <div class="card tl-12 tr-32 bl-12 br-12" style="width: 49%; min-height: 600px;">
+            <div class="row" style="padding: 0;">
+                <h3 class="adv-title">Преимущество 2</h3>
+                <hr class="adv-line"></hr>
+            </div>
+
+            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card tl-12 tr-12 bl-32 br-12" style="width: 49%; min-height: 600px;">
+            <div class="row" style="padding: 0;">
+                <h3 class="adv-title">Преимущество 3</h3>
+                <hr class="adv-line"></hr>
+            </div>
+
+            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+
+        </div>
+
+        <div class="card tl-12 tr-12 bl-12 br-32" style="width: 49%; min-height: 600px;">
+            <div class="row" style="padding: 0;">
+                <h3 class="adv-title">Преимущество 4</h3>
+                <hr class="adv-line"></hr>
+            </div>
+
+            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <h2 id="contacts" class="title">Контакты</h2>
+
+    <div class="row">
+        <div class="card centered break-words tl-32 tr-12 bl-32 br-12" style="width: 32%; min-height: 400px;">
+            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <img src="images/mail.png"
+                    style="width:100px" alt="placeholder">
+
+                <h3 style="margin-top: 3%;">Электронная почта</h3>
+                <h2 style="margin-top: 10%;"><a href="mailto:email@domain.com">[ email@domain.com ]</a></h2>
+            </div>
+        </div>
+
+        <div class="card centered break-words tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 400px;">
+            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <img src="images/phone.png"
+                    style="width:100px" alt="placeholder">
+
+                <h3 style="margin-top: 3%;">Телефон</h3>
+                <h2 style="margin-top: 10%;"><a href="tel:+375290000000">[ +375290000000 ]</a></h2>
+            </div>
+        </div>
+
+        <div class="card centered break-words tl-12 tr-32 bl-12 br-32" style="width: 32%; min-height: 400px;">
+            <div class="centered" style="height: 100%; display: flex;
+                flex-direction: column; justify-content: space-between;">
+                <img src="images/tg.svg"
+                    style="width:100px" alt="placeholder">
+
+                <h2><a href="telegram.org">Telegram</a></h2>
+
+                <hr style="color:var(--accent); width: 100%;">
+
+                <img src="images/viber.png"
+                    style="width:100px;" alt="placeholder">
+                <h2><a href="viber.com">Viber</a></h2>
+            </div>            
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="bottombar row tl-32 tr-32" style="justify-content: space-between; align-items: center;">
+        <a href="/">[ ЛОГО ]</a>
+
+        <ul id="has-title">
+            <li><p class="purple">Клиентам и компаниям</p></li>
+            <li><a class="purple" href = "#price">цены</a></li>
+            <li><a class="purple" href = "#adv">преимущества</a></li>
+            <li><a class="purple" href = "#services">типы услуг</a></li>
+        </ul>
+
+        <ul id="has-title">
+            <li><p class="purple">Контакты</p></li>
+            <li><a class="purple" href="tel:+375290000000">[ +375290000000 ]</a></li>
+            <li><a class="purple" href="mailto:email@domain.com">[ email@domain.com ]</a></li>
+            <li><p class="purple" style="margin: 0;">
+                <a class="purple" href="telegram.org">Telegram</a>, 
+                <a class="purple" href="viber.com">Viber</a>
+            </p></li>
+        </ul>
+
+        
+        <p class="purple" style="text-align: center;">[ некий текст ]<br><br>© 2026 [ название ]</p>
+    </div>
+
+</body>
+</html>

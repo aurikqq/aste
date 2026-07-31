@@ -72,19 +72,16 @@ a {
 
 .purple {
     color: var(--accent);
-    font-family: "PT Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "JetBrains Mono", monospace;
 }
 
 .purple-with-bg {
     color: var(--accent);
     background-color: var(--card);
+    width: fit-content;
     padding: 0.4rem 0.5rem;
     border-radius: 12px;
     font-family: "JetBrains Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
 }
 
 .topbar {
@@ -127,8 +124,10 @@ ul.no-marker > li {
 
 .card {
     background-color: var(--card);
-    padding: 1%;
+    padding: 20px 1%;
     position: relative;
+    overflow: hidden;
+    
 }
 
 .centered {
@@ -143,9 +142,15 @@ ul.no-marker > li {
     display: flex;
 }
 
+.break-words {
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
 .bottombar {
     background-color: var(--bars);
     overflow: hidden;
+    padding: 24px 4%;
 }
 
 .slideshow-wrapper:before {
@@ -175,7 +180,7 @@ ul.no-marker > li {
 
 #container {
     width: 100%;
-    height: 2.5rem;
+    padding: 1% 0;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
@@ -195,15 +200,16 @@ ul.no-marker > li {
 
 .fade {
     width: 100%;
+    padding: 1% 0;
     position: absolute;
     background: linear-gradient(
         90deg,
-        #221D2C,
-        #221D2C,
+        var(--bg),
+        var(--bg),
         transparent 5%,
         transparent 95%,
-        #221D2C,
-        #221D2C
+        var(--bg),
+        var(--bg)
     );
     inset: 0;
 }
@@ -224,9 +230,9 @@ ul.no-marker > li {
     border-radius: 0.4rem;
     white-space: nowrap;
     box-shadow:
-        0 0.1rem 0.2rem #00000033,
-        0 0.1rem 0.5rem #0000004d,
-        0 0.2rem 01.5rem #00000066;
+        0 0.1rem 0.2rem var(--accent)0033,
+        0 0.1rem 0.5rem var(--accent)004d,
+        0 0.2rem 01.5rem var(--accent)0066;
 }
 
 select {
@@ -254,12 +260,13 @@ input {
 }
 
 .help-button {
-    height: 100px;
+    min-height: 100px;
     background-color: var(--accent);
     color:#221D2C;
     font-size: 180%;
     font-weight: 700;
     border-width: 0;
+    padding: 10px 1%;
 }
 
 .topbar::before {
@@ -286,6 +293,40 @@ input {
     border-top-right-radius: 50px;
     box-shadow: 0 -50px 0 0 var(--bars);
     padding: 0;
+}
+
+.title {
+    padding: 0 1.5%;
+}
+
+.services-icon {
+    width: 100px;
+    margin-bottom: 2%;
+}
+.services-title {
+    
+}
+.services-text {
+    padding: 0 2%;
+}
+.services-price {
+    margin-bottom: 10px;
+}
+
+.adv-title {
+    margin-bottom: 3%;
+    padding: 1% 0 0 1%;
+    white-space: nowrap;
+}
+.adv-line {
+    margin: 1.35em 1.5em;
+    height: 1px;
+    color: #9E89C7;
+    width: 75%;
+}
+.adv-text {
+    padding-left: 4%;
+    padding-right: 6%;
 }
 
 .tl-32 {
