@@ -14,7 +14,7 @@
 <body>
 
     <ul class="topbar">
-        <li><a href="/">[ ЛОГО ]</a></li>
+        <li style="z-index: 1;"><a href="/">[ ЛОГО ]</a></li>
         <div style="display: flex;">
             <li><a class = "highlighted" href = "#home">главная</a></li>
             <li><a href = "#services">услуги</a></li>
@@ -237,16 +237,16 @@
 
     <div class="row">
         <div class="card tl-32 tr-12 bl-12 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 0;">
+            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
                 <h3 class="adv-title">Преимущество 1</h3>
-                <hr class="adv-line"></hr>
+                <hr class="adv-line">
             </div>
 
             <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
         </div>
 
         <div class="card tl-12 tr-32 bl-12 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 0;">
+            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
                 <h3 class="adv-title">Преимущество 2</h3>
                 <hr class="adv-line"></hr>
             </div>
@@ -258,7 +258,7 @@
 
     <div class="row">
         <div class="card tl-12 tr-12 bl-32 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 0;">
+            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
                 <h3 class="adv-title">Преимущество 3</h3>
                 <hr class="adv-line"></hr>
             </div>
@@ -268,7 +268,7 @@
         </div>
 
         <div class="card tl-12 tr-12 bl-12 br-32" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 0;">
+            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
                 <h3 class="adv-title">Преимущество 4</h3>
                 <hr class="adv-line"></hr>
             </div>
@@ -285,22 +285,28 @@
 
     <div class="row">
         <div class="card centered break-words tl-32 tr-12 bl-32 br-12" style="width: 32%; min-height: 400px;">
-            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                <img src="images/mail.png"
-                    style="width:100px" alt="placeholder">
+            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;">
+                <div>
+                    <img src="images/mail.png"
+                        style="width:100px" alt="placeholder">
 
-                <h3 style="margin-top: 3%;">Электронная почта</h3>
-                <h2 style="margin-top: 10%;"><a href="mailto:email@domain.com">[ email@domain.com ]</a></h2>
+                    <h3 style="margin-top: 10px;">Электронная почта</h3>
+                </div>
+                
+                <h2><a href="mailto:email@domain.com">[ email@domain.com ]</a></h2>
             </div>
         </div>
 
         <div class="card centered break-words tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 400px;">
-            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                <img src="images/phone.png"
-                    style="width:100px" alt="placeholder">
+            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;">
+                <div>
+                    <img src="images/phone.png"
+                        style="width:100px" alt="placeholder">
 
-                <h3 style="margin-top: 3%;">Телефон</h3>
-                <h2 style="margin-top: 10%;"><a href="tel:+375290000000">[ +375290000000 ]</a></h2>
+                    <h3 style="margin-top: 10px;">Телефон</h3>
+                </div>
+                
+                <h2><a href="tel:+375290000000">[ +375290000000 ]</a></h2>
             </div>
         </div>
 

@@ -280,6 +280,7 @@ input {
     border-top-left-radius: 50px;
     box-shadow: 0 -50px 0 0 var(--bars);
     padding: 0;
+    z-index: 0;
 }
 
 .topbar::after {
@@ -293,6 +294,7 @@ input {
     border-top-right-radius: 50px;
     box-shadow: 0 -50px 0 0 var(--bars);
     padding: 0;
+    z-index: 0;
 }
 
 .title {
@@ -314,12 +316,11 @@ input {
 }
 
 .adv-title {
-    margin-bottom: 3%;
-    padding: 1% 0 0 1%;
     white-space: nowrap;
 }
 .adv-line {
-    margin: 1.35em 1.5em;
+    flex: 1;
+    margin-left: 1.35em;
     height: 1px;
     color: #9E89C7;
     width: 75%;
