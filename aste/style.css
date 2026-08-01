@@ -1,5 +1,6 @@
 :root {
     --bg: #130f19;
+    --shadow: #0d0b10;
     --font: #f2eff7;
     --card: #43355d;
     --accent: #9E89C7;
@@ -95,6 +96,27 @@ a {
     top: 0;
     width: 100%;
     z-index: 100;
+    box-shadow: 0 5px 12px var(--shadow);
+}
+
+.topbar.scroll {
+    box-sizing: border-box;
+    padding: 6px 2%;
+    background-color: var(--bars);
+    display: flex;
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 8px;
+    border-radius: 16px;
+    width: fit-content;
+    z-index: 100;
+    box-shadow: 0 5px 12px var(--shadow);
+}
+
+.logo {
+    z-index: 1;
 }
 
 ul.no-marker > li {
@@ -127,7 +149,7 @@ ul.no-marker > li {
     padding: 20px 1%;
     position: relative;
     overflow: hidden;
-    
+    box-shadow: 0 8px 16px;
 }
 
 .centered {
@@ -297,8 +319,24 @@ input {
     z-index: 0;
 }
 
+.topbar.no-after:after {
+    content: none;
+}
+
+.topbar.no-before:before {
+    content: none;
+}
+
+.empty {
+    content: none;
+}
+
 .title {
-    padding: 0 1.5%;
+    margin: 0 1.5% 1%;
+    text-decoration: underline;
+    text-decoration-color: var(--shadow);
+    text-decoration-thickness: 12px;
+    text-decoration-skip-ink: none;
 }
 
 .services-icon {
