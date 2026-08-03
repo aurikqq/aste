@@ -62,7 +62,7 @@
 
             <div>
                 <p>С чем проблема?</p>
-                <select name="problems" id="problems">
+                <select name="device" id="device">
                     <option value=""></option>
                     <option value="var1">вариант 1</option>
                     <option value="var2">вариант 2</option>
@@ -72,7 +72,7 @@
 
             <div>
                 <p>Что случилось?</p>
-                <select name="problems" id="problems">
+                <select name="problem" id="problem">
                     <option value=""></option>
                     <option value="var1">вариант 1</option>
                     <option value="var2">вариант 2</option>
@@ -94,7 +94,7 @@
             <br>
             <div class="row break-words" style="padding: 0;">
                 <button class="help-button tl-16 tr-8 bl-16 br-8"
-                    style="width: 71%;">Оставить заявку</button>
+                    style="width: 71%;" onclick="sendTelegramMessage()">Оставить заявку</button>
                 <button class="help-button tl-8 tr-16 bl-8 br-16"
                     style="width: 26%;">Цены</button>
             </div>
