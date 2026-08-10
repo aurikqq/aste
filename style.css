@@ -240,7 +240,7 @@ ul.no-marker > li {
     align-items: center;
     width: fit-content;
     white-space: nowrap;
-    animation: loop 20s linear infinite;
+    animation: loop 30s linear infinite;
     z-index: 1;
 }
 
@@ -270,9 +270,8 @@ ul.no-marker > li {
     align-items: center;
     gap: 0 0.2rem;
     color: #e2e8f0;
-    background-color: var(--card);
     padding: 0.7rem 1rem;
-    margin: 0rem 1rem;
+    margin: 1rem 1rem;
     border-radius: 0.4rem;
     white-space: nowrap;
     box-shadow:
