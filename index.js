@@ -78,6 +78,37 @@ function toggleTheme() {
     }
 }
 
+// mobile hamburger menu
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const links = document.getElementById('topbar-links');
+    if (menuToggle && links) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = links.classList.toggle('mobile-open');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // close the menu after tapping a link
+        links.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                links.classList.remove('mobile-open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // close the menu if the viewport is resized back to desktop width
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                links.classList.remove('mobile-open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
+
 // ensure icon matches initial theme and attach hover handlers after DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     updateThemeIcon();

@@ -20,12 +20,8 @@
             <a href="/" class="no-padding">
                 <div class="logo-img"></div></a>
         </li>
-        <div class="topbar-links">
-            <li><a href = "#">главная</a></li>
-            <li><a href = "#services">услуги</a></li>
-            <li><a href = "#price">цены</a></li>
-            <li><a href = "#contacts">контакты</a></li>
-            <li class="topbar-item">
+        <div class="topbar-right" id="topbar-right">
+            <li class="topbar-item no-padding">
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
                     <svg id="icon-sun" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -43,11 +39,24 @@
                     </svg>
                 </button>
             </li>
-        </div>        
+
+            <li class="topbar-item no-padding">
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="topbar-links">
+                    <span></span><span></span><span></span>
+                </button>
+            </li>
+
+            <div class="topbar-links" id="topbar-links">
+                <li><a href = "#">главная</a></li>
+                <li><a href = "#services">услуги</a></li>
+                <li><a href = "#price">цены</a></li>
+                <li><a href = "#contacts">контакты</a></li>
+            </div>
+        </div>
     </ul>
 
 
-    <div id="home" class="row">
+    <div id="home" class="resp-row">
         <div class="card tl-32 tr-12 bl-32 br-12 home-main-card">
             <div class="col-between">
                 <div class="z2">
@@ -122,7 +131,7 @@
     <br>
     <br>
     <h2 id="services" class="title">Предоставляемые услуги</h2>
-    <div id="price" class="row">
+    <div id="price" class="resp-row">
         <div class="card centered tl-32 tr-12 bl-12 br-12 service-card">
             <div class="col-center-between">
                 <div>
@@ -169,7 +178,7 @@
         </div>
     </div>
 
-    <div id="price" class="row">
+    <div id="price" class="resp-row">
         <div class="card centered tl-12 tr-12 bl-32 br-12 service-card">
             <div class="col-center-between">
                 <div>
@@ -266,7 +275,7 @@
     <br>
     <h2 id="adv" class="title">Преимущества</h2>
 
-    <div class="row">
+    <div class="resp-row">
         <div class="card tl-32 tr-12 bl-12 br-12 adv-card">
             <div class="row row-header">
                 <h3 class="adv-title">Почти 20 лет опыта в сфере IT</h3>
@@ -293,7 +302,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="resp-row">
         <div class="card tl-12 tr-12 bl-32 br-12 adv-card">
             <div class="row row-header">
                 <h3 class="adv-title">Быстрый выезд и оперативное решение проблем</h3>
@@ -325,7 +334,7 @@
     <br>
     <h2 id="contacts" class="title">Контакты</h2>
 
-    <div class="row">
+    <div class="resp-row">
         <div class="card centered break-words tl-32 tr-12 bl-32 br-12 contact-card">
             <div class="centered col-evenly">
                 <div>
@@ -352,41 +361,44 @@
 
         <div class="card centered break-words tl-12 tr-32 bl-12 br-32 contact-card">
             <div class="centered col-between">
-                <img src="images/tg.svg" class="icon-100" alt="placeholder">
+                <div class="mobile-row-short">
+                    <img src="images/tg.svg" class="icon-100" alt="placeholder">
 
-                <h2><a href="telegram.org">Telegram</a></h2>
-
+                    <h2><a href="telegram.org">Telegram</a></h2>
+                </div>
+                
                 <hr class="full-hr">
 
-                <img src="images/viber.png" class="icon-100" alt="placeholder">
-                <h2><a href="viber.com">Viber</a></h2>
+                <div class="mobile-row-short">
+                    <img src="images/viber.png" class="icon-100" alt="placeholder">
+                    <h2><a href="viber.com">Viber</a></h2>
+                </div>
             </div>            
         </div>
     </div>
 
     <br><br><br>
-    <div class="bottombar row tl-32 tr-32 align-center">
+    <div class="bottombar row mobile-column tl-32 tr-32 align-center">
         <div class="logo-bottom"></div>
+        <div class="row mobile-row">
+            <ul id="has-title">
+                <li><p class="purple">Клиентам и компаниям</p></li>
+                <li><a class="purple" href = "#price">цены</a></li>
+                <li><a class="purple" href = "#adv">преимущества</a></li>
+                <li><a class="purple" href = "#services">типы услуг</a></li>
+            </ul>
 
-        <ul id="has-title">
-            <li><p class="purple">Клиентам и компаниям</p></li>
-            <li><a class="purple" href = "#price">цены</a></li>
-            <li><a class="purple" href = "#adv">преимущества</a></li>
-            <li><a class="purple" href = "#services">типы услуг</a></li>
-        </ul>
-
-        <ul id="has-title">
-            <li><p class="purple">Контакты</p></li>
-            <li><a class="purple" href="tel:+375290000000">[ +375290000000 ]</a></li>
-            <li><a class="purple" href="mailto:email@domain.com">[ email@domain.com ]</a></li>
-            <li><p class="purple no-margin">
-                <a class="purple" href="telegram.org">Telegram</a>, 
-                <a class="purple" href="viber.com">Viber</a>
-            </p></li>
-        </ul>
-
-        
-        <p class="purple text-center">[ некий текст ]<br><br>© 2026 [ название ]</p>
+            <ul id="has-title">
+                <li><p class="purple">Контакты</p></li>
+                <li><a class="purple" href="tel:+375290000000">[ +375290000000 ]</a></li>
+                <li><a class="purple" href="mailto:email@domain.com">[ email@domain.com ]</a></li>
+                <li><p class="purple no-margin">
+                    <a class="purple" href="telegram.org">Telegram</a>, 
+                    <a class="purple" href="viber.com">Viber</a>
+                </p></li>
+            </ul>
+        </div>
+        <p class="purple text-center mobile-row">Все права защищены.<br><br>© 2026 aste.by</p>
     </div>
 
 </body>

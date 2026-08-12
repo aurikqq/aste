@@ -226,9 +226,16 @@ ul.no-marker > li {
     display: flex;
 }
 
+.resp-row {
+    justify-content: space-between;
+    padding: 12px 3%;
+    display: flex;
+}
+
 .break-words {
     overflow-wrap: break-word;
     word-break: break-all;
+    word-wrap: wrap;
 }
 
 .bottombar {
@@ -292,6 +299,7 @@ ul.no-marker > li {
     background: transparent;
     border: 0;
     padding: 6px;
+    margin-right: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -303,6 +311,32 @@ ul.no-marker > li {
     vertical-align: middle;
     pointer-events: none; /* allow click on button, not individual SVG paths */
 }
+
+/* Hamburger menu button (hidden on desktop, shown via media query below) */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 4px;
+    -webkit-tap-highlight-color: transparent;
+}
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--font);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* initial proportions: help 71% / price 26% (approx) */
 .form-row-buttons .help-button { flex: 71; }
@@ -344,7 +378,7 @@ ul.no-marker > li {
 }
 
 /* small safety: make buttons not overflow container */
-.form-row-buttons .help-button, .form-row-buttons .price-button { white-space: nowrap; }
+.form-row-buttons .help-button, .form-row-buttons .price-button { white-space: wrap; }
 
 
 #container {
@@ -587,6 +621,17 @@ input {
 .no-padding { padding: 0 !important; }
 .topbar-links { display: flex; }
 .topbar-item { z-index: 1; }
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+/* on desktop the burger is hidden, so without this the theme button
+   (now first in the DOM so it can sit left-of-burger on mobile) would
+   render before the nav links instead of after them */
+#topbar-links {
+    order: 2;
+}
 .hidden { display: none; }
 .home-main-card { width: 67%; min-height: 600px; padding: 2% 1% 0 2%; position: relative; }
 .col-between { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
@@ -608,61 +653,184 @@ input {
 .no-margin { margin: 0 !important; }
 
 
+/* ============ TABLET: ≤900px — burger nav + 2-column grids ============ */
+@media only screen and (max-width: 900px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .topbar-links {
+        position: absolute; /* anchors to .topbar (position: fixed), so it always sits right below it regardless of topbar height */
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: max-content;
+        min-width: 220px;
+        max-width: calc(100vw - 24px); /* safety net: never wider than the viewport */
+        flex-direction: column;
+        align-items: stretch;
+        background-color: var(--bars);
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 10px 16px var(--shadow);
+        transition: max-height 0.3s ease;
+        border-radius: 16px;
+    }
+    .topbar-links.mobile-open {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .topbar-links li {
+        width: 100%;
+        justify-content: center;
+    }
+    .topbar-links a {
+        width: 100%;
+        padding: 18px 32px;
+    }
+
+    .service-card {
+        width: 32%;
+    }
+    .contact-card {
+        width: 32%;
+    }
+
+    .logo-bottom {
+        display: none;
+    }
+
+    .adv-line {
+        margin-left: 1rem;
+    }
+    .adv-title {
+        font-size: 1.2rem;
+        max-width: 80%;
+    }
+    
+}
+
+/* ============ PHONE: ≤600px — single column layout ============ */
 @media only screen and (max-width: 600px) {
-    .row {
+    .resp-row {
         justify-content: space-between;
         padding: 12px 3%;
         display: flex;
         flex-direction: column;
     }
-    
+
     .card {
-        margin: 
+        margin: 10px 0 10px 0;
+        padding: 12px 16px;
     }
 
+    /* hero + form cards */
     .home-main-card {
         width: 100%;
+        min-height: 0;
+        padding: 6% 5% 0 5%;
     }
     .home-form-card {
         width: 100%;
+        min-height: 0;
+    }
+    /* decorative hero photo overlaps text at narrow widths — hide it */
+    .home-img {
+        display: none;
     }
 
-    p {
-        color: var(--font);
-        margin: 12px 0;
-        font-family: "Noto Sans";
+    /* services / advantages / contacts grids collapse to one column */
+    .service-card,
+    .adv-card,
+    .contact-card {
+        width: 100%;
+        min-height: 0;
     }
-    h6 {
-        color: var(--font);
-        font-family: "Open Sans";
+    .adv-text {
+        font-size: 1rem;
+        padding-left: 0;
+        padding-right: 0;
     }
-    h5 {
-        color: var(--font);
-        font-family: "Open Sans";
+    .adv-line {
+        margin-left: 1rem;
+    }
+    .adv-title {
+        font-size: 1.2rem;
+        max-width: 80%;
+    }
 
+    .companies-img {
+        height: 70px;
     }
-    h4 {
-        color: var(--font);
-        font-family: "Open Sans";
+
+    /* buttons stack instead of squeezing side by side */
+    .form-row-buttons {
+        gap: 10px;
     }
-    h3 {
-        color: var(--font);
-        font-family: "Open Sans";
+    .form-row-buttons .help-button,
+    .form-row-buttons .price-button {
+        width: 100%;
+        min-height: 60px;
+        font-size: 160%;
     }
-    h2 {
-        color: var(--font);
-        font-family: "Open Sans";
+
+    /* footer stacks vertically */
+    .bottombar {
+        align-items: flex-start;
+        height: auto;
+        gap: 20px;
+        padding: 24px 6% 32px;
     }
-    h1 {
-        color: var(--font);
-        font-family: "Open Sans";
+    .logo-bottom {
+        display: none;
     }
-    li {
-        color: var(--font);
-        font-family: "Noto Sans";
+
+    .mobile-column {
+        flex-direction: column;
     }
-    a {
-        color: var(--font);
-        font-family: "Noto Sans";
+
+    .contact-card {
+        height: 360px;
+    }
+
+    .mobile-row-short {
+        width: 60%;
+        height: 45%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .mobile-row {
+        width: 100%;
+        height: 45%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .tl-12 {
+    border-top-left-radius: 32px;
+    }
+    .tr-12 {
+        border-top-right-radius: 32px;
+    }
+    .bl-12 {
+        border-bottom-left-radius: 32px;
+    }
+    .br-12 {
+        border-bottom-right-radius: 32px;
+    }
+    .tl-8 {
+        border-top-left-radius: 16px;
+    }
+    .tr-8 {
+        border-top-right-radius: 16px;
+    }
+    .bl-8 {
+        border-bottom-left-radius: 16px;
+    }
+    .br-8 {
+        border-bottom-right-radius: 16px;
     }
 }
