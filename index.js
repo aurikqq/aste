@@ -25,46 +25,83 @@ $(document).ready(function(){
     }, 5000);
 });
 
-/*var button_send = document.getElementById('button-send');
-var button_price = document.getElementById('button-price');
-button_send.onmouseover = function() {
-    $('.price-button').toggle(false);
-}
-button_send.onmouseleave = function() {
-    $('.price-button').toggle(true);
-}
-button_price.onmouseover = function() {
-    $('.help-button').toggle(false);
-}
-button_price.onmouseleave = function() {
-    $('.help-button').toggle(true);
-}*/
 
 
-
-if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.dataset["theme"] = "dark";
-}
-else {
-    document.documentElement.dataset["theme"] = "light";
-}
-
-window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-        document.documentElement.dataset["theme"] = event.matches
-            ? "dark" : "light";
+// theme initialization with persistence
+(function(){
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') {
+        document.documentElement.dataset["theme"] = saved;
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.dataset["theme"] = "dark";
+    } else {
+        document.documentElement.dataset["theme"] = "light";
     }
-)
+
+    function setTheme(t, save = true) {
+        document.documentElement.dataset["theme"] = t;
+        if (save) localStorage.setItem('theme', t);
+        updateThemeIcon();
+    }
+
+    // follow system only if user hasn't chosen explicitly
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(event.matches ? "dark" : "light", false);
+        }
+    });
+
+    // expose helper so toggleTheme can use it
+    window.setTheme = setTheme;
+})();
+
+function updateThemeIcon() {
+    const sun = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+    if (!sun || !moon) return;
+    if (document.documentElement.dataset["theme"] === "dark") {
+        moon.style.display = 'inline-block';
+        sun.style.display = 'none';
+    } else {
+        sun.style.display = 'inline-block';
+        moon.style.display = 'none';
+    }
+}
 
 function toggleTheme() {
-    if (document.documentElement.dataset["theme"] === "light") {
-        document.documentElement.dataset["theme"] = "dark";
-        return;
+    const next = (document.documentElement.dataset["theme"] === "light") ? "dark" : "light";
+    if (typeof window.setTheme === 'function') window.setTheme(next, true);
+    else {
+        document.documentElement.dataset["theme"] = next;
+        localStorage.setItem('theme', next);
+        updateThemeIcon();
     }
-
-    document.documentElement.dataset["theme"] = "light";
 }
+
+// ensure icon matches initial theme and attach hover handlers after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    updateThemeIcon();
+
+    const container = document.querySelector('.form-row-buttons');
+    if (!container) return;
+    const help = container.querySelector('.help-button');
+    const price = container.querySelector('.price-button');
+    if (!help || !price) return;
+    function expand(el, other) {
+        el.classList.add('expanded');
+        other.classList.add('collapsed');
+    }
+    function reset(el, other) {
+        el.classList.remove('expanded');
+        other.classList.remove('collapsed');
+    }
+    [help, price].forEach(btn => {
+        btn.addEventListener('mouseenter', () => expand(btn, btn === help ? price : help));
+        btn.addEventListener('focus', () => expand(btn, btn === help ? price : help));
+        btn.addEventListener('mouseleave', () => reset(btn, btn === help ? price : help));
+        btn.addEventListener('blur', () => reset(btn, btn === help ? price : help));
+    });
+});
 
 
 

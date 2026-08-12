@@ -10,12 +10,12 @@
 }*/
 
 :root[data-theme="light"] {
-    --font: #06141b;
-    --bg: #ccd0cf;
-    --shadow: #273131;
-    --card: #849faf;
-    --accent: #253745;
-    --bars: rgb(93, 125, 148);
+    --bg: #e8ecf9;
+    --shadow: rgb(113, 121, 147);
+    --font: #0e0f26;
+    --card: #aebcdc;
+    --accent: #2f4174;
+    --bars: #d6dbed;
 }
 
 :root[data-theme="dark"] {
@@ -30,6 +30,7 @@
         filter: invert(50%) brightness(219%) contrast(100%)
     }
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -125,7 +126,7 @@ a {
     top: 0;
     width: 100%;
     z-index: 100;
-    box-shadow: 0 5px 12px;
+    box-shadow: 0 5px 12px var(--shadow);
 }
 
 .topbar.scroll {
@@ -210,7 +211,7 @@ ul.no-marker > li {
     padding: 20px 1%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 16px;
+    box-shadow: 0 8px 16px var(--shadow);
 }
 
 .centered {
@@ -234,7 +235,7 @@ ul.no-marker > li {
     background-color: var(--bars);
     overflow: hidden;
     padding: 24px 4%;
-    box-shadow: 0px -8px 16px;
+    box-shadow: 0px -8px 16px var(--shadow);
     height: 180px;
 }
 
@@ -272,28 +273,63 @@ ul.no-marker > li {
 
 .form-row-buttons .help-button,
 .form-row-buttons .price-button {
-    transition: all 220ms cubic-bezier(.2,.8,.2,1);
+    /* animate flex/width/opacity and border-radius for smooth size change */
+    transition: flex 300ms cubic-bezier(.2,.8,.2,1),
+                width 300ms cubic-bezier(.2,.8,.2,1),
+                opacity 220ms ease,
+                padding 220ms ease,
+                border-radius 220ms cubic-bezier(.2,.8,.2,1);
     flex-basis: 0;
     flex-grow: 1;
     min-width: 0;
     overflow: hidden;
 }
 
+/* ensure anchor-based theme-toggle uses page text color */
+.theme-toggle {
+    color: var(--font);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle svg {
+    display: inline-block;
+    vertical-align: middle;
+    pointer-events: none; /* allow click on button, not individual SVG paths */
+}
+
 /* initial proportions: help 71% / price 26% (approx) */
 .form-row-buttons .help-button { flex: 71; }
 .form-row-buttons .price-button { flex: 26; }
 
-/* Hover: help expands to take remaining space, price shrinks */
-.form-row-buttons .help-button:hover {
+/* Hover/expanded behavior handled via JS classes: expanded / collapsed */
+.form-row-buttons .help-button.expanded,
+.form-row-buttons .price-button.expanded,
+.form-row-buttons .help-button:hover,
+.form-row-buttons .price-button:hover {
     flex: 100 !important;
+    border-radius: 16px !important;
 }
 
-.form-row-buttons .help-button:hover + .price-button {
+.form-row-buttons .help-button.collapsed,
+.form-row-buttons .price-button.collapsed {
     flex: 0 !important;
     width: 0 !important;
     opacity: 0;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+/* keep an explicit transition for the collapse */
+.form-row-buttons .help-button,
+.form-row-buttons .price-button {
+    transition: all 220ms cubic-bezier(.2,.8,.2,1);
 }
 
 /* Active (press) shrink effect */
@@ -403,6 +439,10 @@ input {
     font-weight: 700;
     border-width: 0;
     padding: 10px 1%;
+    display: inline-flex; /* center text vertically */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .price-button {
@@ -413,6 +453,11 @@ input {
     font-weight: 700;
     border-width: 0;
     padding: 10px 1%;
+    display: inline-flex; /* anchors behave like buttons now */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none; /* remove underline for <a> */
 }
 
 .topbar::before {
@@ -457,10 +502,8 @@ input {
 
 .title {
     margin: 0 0 4px 1.5%;
-    text-decoration: underline;
-    text-decoration-color: var(--shadow);
-    text-decoration-thickness: 12px;
-    text-decoration-skip-ink: none;
+    position: relative;
+    display: inline-block;
 }
 
 .services-icon {
@@ -475,7 +518,8 @@ input {
 }
 
 .adv-title {
-    white-space: nowrap;
+    font-size: 1.4rem;
+    max-width: 90%;
 }
 .adv-line {
     flex: 1;
@@ -487,6 +531,7 @@ input {
 .adv-text {
     padding-left: 4%;
     padding-right: 6%;
+    font-size: 1.2rem;
 }
 
 .tl-32 {
@@ -536,4 +581,88 @@ input {
 }
 .br-8 {
     border-bottom-right-radius: 6px;
+}
+
+/* Utility classes generated to replace inline styles in site.html */
+.no-padding { padding: 0 !important; }
+.topbar-links { display: flex; }
+.topbar-item { z-index: 1; }
+.hidden { display: none; }
+.home-main-card { width: 67%; min-height: 600px; padding: 2% 1% 0 2%; position: relative; }
+.col-between { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.z2 { z-index: 2; }
+.pad-left-0 { padding-left: 0 !important; }
+.home-form-card { width: 31%; min-height: 600px; height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
+.text-center { text-align: center; }
+.mt-3 { margin-top: 3%; }
+.service-card { width: 32%; min-height: 500px; }
+.col-center-between { display:flex; flex-direction:column; align-items:center; justify-content:space-between; height:100%; }
+.row-header { padding: 1% 1% 2% 1%; align-items: center; }
+.adv-card { width: 49%; min-height: 600px; }
+.contact-card { width: 32%; min-height: 400px; }
+.col-evenly { height:100%; display:flex; flex-direction:column; justify-content:space-evenly; }
+.icon-100 { width: 100px !important; }
+.mt-10px { margin-top: 10px !important; }
+.full-hr { color: var(--accent); width: 100%; border: none; height:1px; background: var(--accent); }
+.align-center { align-items: center; justify-content: space-between; }
+.no-margin { margin: 0 !important; }
+
+
+@media only screen and (max-width: 600px) {
+    .row {
+        justify-content: space-between;
+        padding: 12px 3%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card {
+        margin: 
+    }
+
+    .home-main-card {
+        width: 100%;
+    }
+    .home-form-card {
+        width: 100%;
+    }
+
+    p {
+        color: var(--font);
+        margin: 12px 0;
+        font-family: "Noto Sans";
+    }
+    h6 {
+        color: var(--font);
+        font-family: "Open Sans";
+    }
+    h5 {
+        color: var(--font);
+        font-family: "Open Sans";
+
+    }
+    h4 {
+        color: var(--font);
+        font-family: "Open Sans";
+    }
+    h3 {
+        color: var(--font);
+        font-family: "Open Sans";
+    }
+    h2 {
+        color: var(--font);
+        font-family: "Open Sans";
+    }
+    h1 {
+        color: var(--font);
+        font-family: "Open Sans";
+    }
+    li {
+        color: var(--font);
+        font-family: "Noto Sans";
+    }
+    a {
+        color: var(--font);
+        font-family: "Noto Sans";
+    }
 }

@@ -16,24 +16,41 @@
 <body>
 
     <ul class="topbar">
-        <li class="row logo" style="padding: 0;">
-            <a href="/" style="padding: 0;">
+        <li class="row logo no-padding">
+            <a href="/" class="no-padding">
                 <div class="logo-img"></div></a>
         </li>
-        <div style="display: flex;">
+        <div class="topbar-links">
             <li><a href = "#">главная</a></li>
             <li><a href = "#services">услуги</a></li>
             <li><a href = "#price">цены</a></li>
             <li><a href = "#contacts">контакты</a></li>
-            <li style="z-index: 1;"><a onclick="toggleTheme()">тема</a></li>
+            <li class="topbar-item">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                    <svg id="icon-sun" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.2" y1="4.2" x2="5.6" y2="5.6"></line>
+                        <line x1="18.4" y1="18.4" x2="19.8" y2="19.8"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.2" y1="19.8" x2="5.6" y2="18.4"></line>
+                        <line x1="18.4" y1="5.6" x2="19.8" y2="4.2"></line>
+                    </svg>
+                    <svg id="icon-moon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                </button>
+            </li>
         </div>        
     </ul>
 
 
     <div id="home" class="row">
-        <div class="card tl-32 tr-12 bl-32 br-12" style="width: 67%; min-height: 600px; padding: 2% 1% 0 2%;">
-            <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="z-index: 2">
+        <div class="card tl-32 tr-12 bl-32 br-12 home-main-card">
+            <div class="col-between">
+                <div class="z2">
                     <h1>
                         Обслуживание и ремонт компьютеров,<br>
                         настройка серверного оборудования<br>
@@ -46,24 +63,21 @@
                         настройка серверов, решение проблем с ПК<br>
                         и не только</h3>
                         
-                    <p class="purple-with-bg" style="padding: 0.4rem 0.5rem 0.4rem 0">
+                    <p class="purple-with-bg pad-left-0">
                         Обслуживаются только юридические лица<br>и индивидуальные предприниматели</p>
                 </div>
 
-                <p class="purple-with-bg" style="z-index: 2; padding: 0.4rem 0.5rem 0.4rem 0;">
+                <p class="purple-with-bg z2 pad-left-0">
                     ↓ подробная информация ниже</p>
             </div>
 
             <div class="home-img br-12">
                 <img class="br-12" src='images/pic-3.png'/>
             </div>
-            
-                
         </div>
 
-        <div class="card tl-12 tr-32 bl-12 br-32" style="width: 31%; min-height: 600px;
-            height: 100%; display: flex; flex-direction: column; justify-content: space-around;">
-            <h2 style="text-align: center;">Нужна помощь?</h2>
+        <div class="card tl-12 tr-32 bl-12 br-32 home-form-card">
+            <h2 class="text-center">Нужна помощь?</h2>
             <br>
 
             <div>
@@ -98,9 +112,9 @@
             </div>
             
             <br>
-            <div class="row break-words form-row-buttons" style="padding: 0;">
+            <div class="row break-words form-row-buttons mt-3">
                 <button class="help-button tl-16 tr-8 bl-16 br-8" id="button-send" onclick="sendTelegramMessage()">Оставить заявку</button>
-                <a href="#price"><button class="price-button tl-8 tr-16 bl-8 br-16" id="button-price">Цены</button></a>
+                <a href="#price" class="price-button centered tl-8 tr-16 bl-8 br-16" id="button-price">Цены</a>
             </div>
         </div>
     </div>
@@ -109,8 +123,8 @@
     <br>
     <h2 id="services" class="title">Предоставляемые услуги</h2>
     <div id="price" class="row">
-        <div class="card centered tl-32 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-32 tr-12 bl-12 br-12 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -124,8 +138,8 @@
             </div>
         </div>
 
-        <div class="card centered tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-12 tr-12 bl-12 br-12 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -139,8 +153,8 @@
             </div>
         </div>
 
-        <div class="card centered tl-12 tr-32 bl-12 br-12" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-12 tr-32 bl-12 br-12 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -156,8 +170,8 @@
     </div>
 
     <div id="price" class="row">
-        <div class="card centered tl-12 tr-12 bl-32 br-12" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-12 tr-12 bl-32 br-12 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -171,8 +185,8 @@
             </div>
         </div>
 
-        <div class="card centered tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-12 tr-12 bl-12 br-12 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -186,8 +200,8 @@
             </div>
         </div>
 
-        <div class="card centered tl-12 tr-12 bl-12 br-32" style="width: 32%; min-height: 500px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
+        <div class="card centered tl-12 tr-12 bl-12 br-32 service-card">
+            <div class="col-center-between">
                 <div>
                     <img class="services-icon"
                         src="images/placeholder.svg" alt="placeholder">
@@ -202,7 +216,7 @@
         </div>
     </div>
 
-    <p class="purple" style="text-align: center;">Все вышеперечисленные услуги входят в обслуживание компаний,
+    <p class="purple text-center">Все вышеперечисленные услуги входят в обслуживание компаний,
         также возможны и другие по договорённости</p>
 
 
@@ -253,44 +267,55 @@
     <h2 id="adv" class="title">Преимущества</h2>
 
     <div class="row">
-        <div class="card tl-32 tr-12 bl-12 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
-                <h3 class="adv-title">Преимущество 1</h3>
+        <div class="card tl-32 tr-12 bl-12 br-12 adv-card">
+            <div class="row row-header">
+                <h3 class="adv-title">Почти 20 лет опыта в сфере IT</h3>
                 <hr class="adv-line">
             </div>
 
-            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+            <p class="adv-text">Стаж работы с компьютерной техникой и серверным оборудованием — без малого 20 лет.
+                Эти годы дали значимый опыт для самых разных случаев, от простого ремонта ПК до настройки сложной серверной инфраструктуры для организаций —
+                и умение быстро находить причину практически любой проблемы, будь то зависший компьютер или сбой в работе сервера.
+                Такой опыт позволяет не экспериментировать на клиенте, а сразу предлагать проверенные решения, экономя ваше время.</p>
         </div>
 
-        <div class="card tl-12 tr-32 bl-12 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
-                <h3 class="adv-title">Преимущество 2</h3>
+        <div class="card tl-12 tr-32 bl-12 br-12 adv-card">
+            <div class="row row-header">
+                <h3 class="adv-title">Широкий спектр услуг — от ремонта ПК до серверов</h3>
                 <hr class="adv-line"></hr>
             </div>
 
-            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+            <p class="adv-text">Предлагается полный комплекс услуг: обслуживание и ремонт компьютеров, настройка серверного оборудования,
+                абонентское обслуживание техники, поддержку бухгалтерских программ
+                и решение любых сопутствующих IT-проблем. Вам не нужно искать отдельного специалиста под каждую задачу —
+                закрывается весь спектр вопросов, связанных с компьютерной техникой, что экономит и время, и деньги.</p>
 
         </div>
     </div>
 
     <div class="row">
-        <div class="card tl-12 tr-12 bl-32 br-12" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
-                <h3 class="adv-title">Преимущество 3</h3>
+        <div class="card tl-12 tr-12 bl-32 br-12 adv-card">
+            <div class="row row-header">
+                <h3 class="adv-title">Быстрый выезд и оперативное решение проблем</h3>
                 <hr class="adv-line"></hr>
             </div>
 
-            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+            <p class="adv-text">Разумеется, что для бизнеса простой техники — это простой в работе и потерянные деньги.
+                Поэтому выезды к клиенту происходят максимально оперативно, и проблема по возможности решается на месте — делается всё, чтобы не растягивать её на дни.
+                Поэтому обслуживаемым компаниям легко быстро вернуть
+                в строй бухгалтерию и рабочие места сотрудников или настроить новую технику.</p>
 
         </div>
 
-        <div class="card tl-12 tr-12 bl-12 br-32" style="width: 49%; min-height: 600px;">
-            <div class="row" style="padding: 1% 1% 2% 1%; align-items: center">
-                <h3 class="adv-title">Преимущество 4</h3>
+        <div class="card tl-12 tr-12 bl-12 br-32 adv-card">
+            <div class="row row-header">
+                <h3 class="adv-title">Доступные цены без потери качества</h3>
                 <hr class="adv-line"></hr>
             </div>
 
-            <p class="adv-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quis itaque voluptate, accusamus ullam sapiente ipsa porro, maxime deleniti facere, rem exercitationem id enim illum iure obcaecati blanditiis nulla temporibus delectus. Sed enim officia facilis dolorum veritatis iusto placeat quos libero pariatur, commodi cumque quasi voluptas, quaerat alias perspiciatis dolor.</p>
+            <p class="adv-text">Мы устанавливаем адекватные цены на свои услуги, не завышая их без значимой причины.
+                При этом на постоянном абонентском обслуживании у нас сейчас находится 17 компаний — это лучшее доказательство того,
+                что наше качество работы на высоте, а подход к ценообразованию справедлив.</p>
 
         </div>
     </div>
@@ -301,51 +326,46 @@
     <h2 id="contacts" class="title">Контакты</h2>
 
     <div class="row">
-        <div class="card centered break-words tl-32 tr-12 bl-32 br-12" style="width: 32%; min-height: 400px;">
-            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;">
+        <div class="card centered break-words tl-32 tr-12 bl-32 br-12 contact-card">
+            <div class="centered col-evenly">
                 <div>
-                    <img src="images/mail.png"
-                        style="width:100px" alt="placeholder">
+                    <img src="images/mail.png" class="icon-100" alt="placeholder">
 
-                    <h3 style="margin-top: 10px;">Электронная почта</h3>
+                    <h3 class="mt-10px">Электронная почта</h3>
                 </div>
                 
                 <h2><a href="mailto:email@domain.com">[ email@domain.com ]</a></h2>
             </div>
         </div>
 
-        <div class="card centered break-words tl-12 tr-12 bl-12 br-12" style="width: 32%; min-height: 400px;">
-            <div class="centered" style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;">
+        <div class="card centered break-words tl-12 tr-12 bl-12 br-12 contact-card">
+            <div class="centered col-evenly">
                 <div>
-                    <img src="images/phone.png"
-                        style="width:100px" alt="placeholder">
+                    <img src="images/phone.png" class="icon-100" alt="placeholder">
 
-                    <h3 style="margin-top: 10px;">Телефон</h3>
+                    <h3 class="mt-10px">Телефон</h3>
                 </div>
                 
                 <h2><a href="tel:+375290000000">[ +375290000000 ]</a></h2>
             </div>
         </div>
 
-        <div class="card centered break-words tl-12 tr-32 bl-12 br-32" style="width: 32%; min-height: 400px;">
-            <div class="centered" style="height: 100%; display: flex;
-                flex-direction: column; justify-content: space-between;">
-                <img src="images/tg.svg"
-                    style="width:100px" alt="placeholder">
+        <div class="card centered break-words tl-12 tr-32 bl-12 br-32 contact-card">
+            <div class="centered col-between">
+                <img src="images/tg.svg" class="icon-100" alt="placeholder">
 
                 <h2><a href="telegram.org">Telegram</a></h2>
 
-                <hr style="color:var(--accent); width: 100%;">
+                <hr class="full-hr">
 
-                <img src="images/viber.png"
-                    style="width:100px;" alt="placeholder">
+                <img src="images/viber.png" class="icon-100" alt="placeholder">
                 <h2><a href="viber.com">Viber</a></h2>
             </div>            
         </div>
     </div>
 
     <br><br><br>
-    <div class="bottombar row tl-32 tr-32" style="justify-content: space-between; align-items: center;">
+    <div class="bottombar row tl-32 tr-32 align-center">
         <div class="logo-bottom"></div>
 
         <ul id="has-title">
@@ -359,14 +379,14 @@
             <li><p class="purple">Контакты</p></li>
             <li><a class="purple" href="tel:+375290000000">[ +375290000000 ]</a></li>
             <li><a class="purple" href="mailto:email@domain.com">[ email@domain.com ]</a></li>
-            <li><p class="purple" style="margin: 0;">
+            <li><p class="purple no-margin">
                 <a class="purple" href="telegram.org">Telegram</a>, 
                 <a class="purple" href="viber.com">Viber</a>
             </p></li>
         </ul>
 
         
-        <p class="purple" style="text-align: center;">[ некий текст ]<br><br>© 2026 [ название ]</p>
+        <p class="purple text-center">[ некий текст ]<br><br>© 2026 [ название ]</p>
     </div>
 
 </body>
