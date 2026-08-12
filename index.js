@@ -12,7 +12,18 @@ $(document).scroll(function() {
     }
 });
 
-
+$(document).ready(function(){
+    let images = [
+        "images/pic-1.jpg",
+        "images/pic-2.jpg",
+        "images/pic-3.png",
+    ];
+    var i = 0;
+    window.setInterval(function(){
+        $('.home-img'). attr("src", images[i]);
+        i = (i==images.length-1) ? 0 : i+1;
+    }, 5000);
+});
 
 /*var button_send = document.getElementById('button-send');
 var button_price = document.getElementById('button-price');
@@ -86,3 +97,86 @@ function sendTelegramMessage() {
             console.log(data)
     })
 }
+
+
+
+$(function() {
+    const navLinks = Array.from(document.querySelectorAll('.topbar a[href^="#"]'));
+    if (!navLinks.length) return;
+
+    function clearHighlights() {
+        navLinks.forEach(a => a.classList.remove('highlighted'));
+    }
+
+    function setHighlighted(hash) {
+        clearHighlights();
+        if (!hash) return;
+        const selector = `.topbar a[href="${hash}"]`;
+        const el = document.querySelector(selector);
+        if (el) el.classList.add('highlighted');
+    }
+
+    navLinks.forEach(a => {
+        a.addEventListener('click', function() {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) setHighlighted(href);
+        });
+    });
+
+    const sections = navLinks
+        .map(a => a.getAttribute('href'))
+        .filter(h => h && h.startsWith('#'))
+        .map(h => document.querySelector(h))
+        .filter(Boolean);
+
+    if (sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id ? `#${entry.target.id}` : null;
+                    if (id) setHighlighted(id);
+                }
+            });
+        }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+        sections.forEach(s => observer.observe(s));
+    }
+
+    const initial = window.location.hash || (sections[0] && `#${sections[0].id}`);
+    if (initial) setHighlighted(initial);
+});
+
+function showError(elem, msg) {
+    if (!elem) return;
+    elem.classList.add('invalid');
+    let e = elem.nextElementSibling;
+    if (!e || !e.classList.contains('error-text')) {
+        e = document.createElement('div');
+        e.className = 'error-text';
+        elem.parentNode.insertBefore(e, elem.nextSibling);
+    }
+    e.textContent = msg;
+}
+
+function clearError(elem) {
+    if (!elem) return;
+    elem.classList.remove('invalid');
+    let e = elem.nextElementSibling;
+    if (e && e.classList.contains('error-text')) e.textContent = '';
+}
+
+$(function() {
+    ['name','number','device','problem'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', () => clearError(el));
+        el.addEventListener('change', () => clearError(el));
+    });
+
+    const sendBtn = document.getElementById('button-send');
+    if (sendBtn) {
+        sendBtn.addEventListener('click', function(event) {
+            return true;
+        });
+    }
+});

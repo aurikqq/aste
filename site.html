@@ -9,16 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
     <script src="./index.js"></script>
 </head>
 
 <body>
 
     <ul class="topbar">
-        <li class="logo"><a href="/">[ ЛОГО ]</a></li>
+        <li class="row logo" style="padding: 0;">
+            <a href="/" style="padding: 0;">
+                <div class="logo-img"></div></a>
+        </li>
         <div style="display: flex;">
-            <li><a class = "highlighted" href = "#home">главная</a></li>
+            <li><a href = "#">главная</a></li>
             <li><a href = "#services">услуги</a></li>
             <li><a href = "#price">цены</a></li>
             <li><a href = "#contacts">контакты</a></li>
@@ -51,9 +54,11 @@
                     ↓ подробная информация ниже</p>
             </div>
 
-            <div class='slideshow-wrapper br-12'>
-                <img class="br-12" src='images/pic.jpg'/>
+            <div class="home-img br-12">
+                <img class="br-12" src='images/pic-3.png'/>
             </div>
+            
+                
         </div>
 
         <div class="card tl-12 tr-32 bl-12 br-32" style="width: 31%; min-height: 600px;
@@ -93,11 +98,9 @@
             </div>
             
             <br>
-            <div class="row break-words" style="padding: 0;">
-                <button class="help-button tl-16 tr-8 bl-16 br-8" id="button-send"
-                    style="width: 71%;" onclick="sendTelegramMessage()">Оставить заявку</button>
-                <button class="price-button tl-8 tr-16 bl-8 br-16" id="button-price"
-                    style="width: 26%;">Цены</button>
+            <div class="row break-words form-row-buttons" style="padding: 0;">
+                <button class="help-button tl-16 tr-8 bl-16 br-8" id="button-send" onclick="sendTelegramMessage()">Оставить заявку</button>
+                <a href="#price"><button class="price-button tl-8 tr-16 bl-8 br-16" id="button-price">Цены</button></a>
             </div>
         </div>
     </div>
@@ -110,7 +113,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 1</h3>
 
@@ -125,7 +128,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 2</h3>
 
@@ -140,7 +143,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 3</h3>
 
@@ -157,7 +160,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 4</h3>
 
@@ -172,7 +175,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 5</h3>
 
@@ -187,7 +190,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;">
                 <div>
                     <img class="services-icon"
-                        src="images/landscape-placeholder-svgrepo-com.svg" alt="placeholder">
+                        src="images/placeholder.svg" alt="placeholder">
 
                     <h3 class="services-title">Услуга 6</h3>
 
@@ -209,37 +212,37 @@
 
     <div id='container'>
         <div class='scroll'>
-            <div class="item"><img style="width:150px" src="images/companies/ChatGPT Image Aug 11, 2026, 12_09_41 AM.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/gaoogr.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo(1).png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo-ricco-okna.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo.svg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo1.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/photo_5443080628128653232_m.jpg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/S_height.jpg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/salbi.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/Screenshot_20260810_232413.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/Screenshot_20260810_232828.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/sdfsd.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/z55tv07ptgxlmsam8c4hqq94c5nwsn0t.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/СПМК-68-ts1671100153.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg"></div>
 
-            <div class="item"><img style="width:150px" src="images/companies/ChatGPT Image Aug 11, 2026, 12_09_41 AM.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/gaoogr.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo(1).png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo-ricco-okna.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo.svg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/logo1.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/photo_5443080628128653232_m.jpg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/S_height.jpg"></div>
-            <div class="item"><img style="width:150px" src="images/companies/salbi.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/Screenshot_20260810_232413.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/Screenshot_20260810_232828.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/sdfsd.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/z55tv07ptgxlmsam8c4hqq94c5nwsn0t.png"></div>
-            <div class="item"><img style="width:150px" src="images/companies/СПМК-68-ts1671100153.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg"></div>
         </div>
         <div class='fade'></div>
     </div>
@@ -343,7 +346,7 @@
 
     <br><br><br>
     <div class="bottombar row tl-32 tr-32" style="justify-content: space-between; align-items: center;">
-        <a href="/">[ ЛОГО ]</a>
+        <div class="logo-bottom"></div>
 
         <ul id="has-title">
             <li><p class="purple">Клиентам и компаниям</p></li>
