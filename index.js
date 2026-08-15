@@ -151,19 +151,22 @@ function sendTelegramMessage() {
     let device = document.getElementById('device').value;
     let problem = document.getElementById('problem').value;
 
-    const address =
-        'https://api.telegram.org/bot8713072557:AAEIgoxtpZtm-8DmdsYCVO9zaaf7HxwyNUs/' +
-        'sendMessage?chat_id=1104899353&parse_mode=html&text=' + 
-        '<b>Новая заявка на обслуживание</b>%0A%0A' +
-        '  - Имя: ' + name + '%0A' +
-        '  - Телефон: ' + phone + '%0A' +
-        '  - Сломалось: ' + device + '%0A' +
-        '  - Проблема: ' + problem
+    const text =
+        '<b>Новая заявка на обслуживание</b>\n\n' +
+        '  - Имя: ' + name + '\n' +
+        '  - Телефон: ' + phone + '\n' +
+        '  - Сломалось: ' + device + '\n' +
+        '  - Проблема: ' + problem;
 
-    postData(address, { answer: 42 })
-        .then((data) => {
-            console.log(data)
+    fetch('https://tg-proxy.awergiony.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: text, chat_id: 1104899353, parse_mode: 'html' })
     })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        });
 }
 
 

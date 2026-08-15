@@ -369,7 +369,7 @@ ul.no-marker > li {
 /* Active (press) shrink effect */
 .form-row-buttons .help-button:active,
 .form-row-buttons .price-button:active {
-    transform: scale(0.97);
+    transform: scale(0.95);
 }
 
 /* ensure smooth collapse for price button */
