@@ -12,19 +12,39 @@ $(document).scroll(function() {
     }
 });
 
-$(document).ready(function(){
-    let images = [
+$(document).ready(function() {
+    const images = [
         "images/pic-1.jpg",
         "images/pic-2.jpg",
-        "images/pic-3.png",
+        "images/pic-3.png"
     ];
-    var i = 0;
-    window.setInterval(function(){
-        $('.home-img'). attr("src", images[i]);
-        i = (i==images.length-1) ? 0 : i+1;
+
+    let currentIndex = 2;
+
+    const current = document.querySelector('.home-img .slide-current');
+    const next = document.querySelector('.home-img .slide-next');
+
+    if (!current || !next) return;
+
+    setInterval(function() {
+        const nextIndex = (currentIndex + 1) % images.length;
+
+        // Загружаем следующую картинку во второй слой
+        next.src = images[nextIndex];
+
+        // Плавно показываем её
+        next.classList.add('is-visible');
+
+        // После завершения анимации делаем её основной
+        setTimeout(function() {
+            current.src = images[nextIndex];
+            next.classList.remove('is-visible');
+
+            currentIndex = nextIndex;
+        }, 700);
+
     }, 5000);
 });
-
 
 
 // theme initialization with persistence
@@ -109,29 +129,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ensure icon matches initial theme and attach hover handlers after DOM is ready
+// ensure icon matches initial theme after DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     updateThemeIcon();
-
-    const container = document.querySelector('.form-row-buttons');
-    if (!container) return;
-    const help = container.querySelector('.help-button');
-    const price = container.querySelector('.price-button');
-    if (!help || !price) return;
-    function expand(el, other) {
-        el.classList.add('expanded');
-        other.classList.add('collapsed');
-    }
-    function reset(el, other) {
-        el.classList.remove('expanded');
-        other.classList.remove('collapsed');
-    }
-    [help, price].forEach(btn => {
-        btn.addEventListener('mouseenter', () => expand(btn, btn === help ? price : help));
-        btn.addEventListener('focus', () => expand(btn, btn === help ? price : help));
-        btn.addEventListener('mouseleave', () => reset(btn, btn === help ? price : help));
-        btn.addEventListener('blur', () => reset(btn, btn === help ? price : help));
-    });
 });
 
 
@@ -146,10 +146,17 @@ const postData = async(url = '', data = {}) => {
 }
 
 function sendTelegramMessage() {
-    let name = document.getElementById('name').value;
-    let phone = document.getElementById('number').value;
-    let device = document.getElementById('device').value;
-    let problem = document.getElementById('problem').value;
+    const nameEl = document.getElementById('name');
+    const phoneEl = document.getElementById('number');
+    const deviceEl = document.getElementById('device');
+    const problemEl = document.getElementById('problem');
+    const statusEl = document.getElementById('form-status');
+    const sendBtn = document.getElementById('button-send');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const device = deviceEl ? deviceEl.value : '';
+    const problem = problemEl ? problemEl.value : '';
 
     const text =
         '<b>Новая заявка на обслуживание</b>\n\n' +
@@ -158,64 +165,49 @@ function sendTelegramMessage() {
         '  - Сломалось: ' + device + '\n' +
         '  - Проблема: ' + problem;
 
+    if (statusEl) {
+        statusEl.textContent = '';
+        statusEl.className = 'form-status';
+    }
+    if (sendBtn) sendBtn.disabled = true;
+
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        // 'application/json' is not a CORS-"simple" content type, so the
+        // browser first sends a preflight OPTIONS request. If the Worker
+        // doesn't explicitly answer OPTIONS with CORS headers, the browser
+        // blocks the real POST before it ever reaches Telegram — the request
+        // works fine from curl/Postman (no CORS involved) but silently fails
+        // from the site. 'text/plain' is a "simple" type and skips preflight;
+        // the Worker should read the raw body text and JSON.parse() it rather
+        // than relying on the Content-Type header.
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ text: text, chat_id: 1104899353, parse_mode: 'html' })
     })
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        })
         .then((data) => {
             console.log(data);
+            if (statusEl) {
+                statusEl.textContent = 'Заявка отправлена, мы скоро свяжемся с вами!';
+                statusEl.className = 'form-status success';
+            }
+        })
+        .catch((err) => {
+            console.error('Telegram send failed:', err);
+            if (statusEl) {
+                statusEl.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.';
+                statusEl.className = 'form-status error';
+            }
+        })
+        .finally(() => {
+            if (sendBtn) sendBtn.disabled = false;
         });
 }
 
 
-
-$(function() {
-    const navLinks = Array.from(document.querySelectorAll('.topbar a[href^="#"]'));
-    if (!navLinks.length) return;
-
-    function clearHighlights() {
-        navLinks.forEach(a => a.classList.remove('highlighted'));
-    }
-
-    function setHighlighted(hash) {
-        clearHighlights();
-        if (!hash) return;
-        const selector = `.topbar a[href="${hash}"]`;
-        const el = document.querySelector(selector);
-        if (el) el.classList.add('highlighted');
-    }
-
-    navLinks.forEach(a => {
-        a.addEventListener('click', function() {
-            const href = this.getAttribute('href');
-            if (href && href.startsWith('#')) setHighlighted(href);
-        });
-    });
-
-    const sections = navLinks
-        .map(a => a.getAttribute('href'))
-        .filter(h => h && h.startsWith('#'))
-        .map(h => document.querySelector(h))
-        .filter(Boolean);
-
-    if (sections.length) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id ? `#${entry.target.id}` : null;
-                    if (id) setHighlighted(id);
-                }
-            });
-        }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
-
-        sections.forEach(s => observer.observe(s));
-    }
-
-    const initial = window.location.hash || (sections[0] && `#${sections[0].id}`);
-    if (initial) setHighlighted(initial);
-});
 
 function showError(elem, msg) {
     if (!elem) return;

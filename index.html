@@ -47,7 +47,7 @@
             </li>
 
             <div class="topbar-links" id="topbar-links">
-                <li><a href = "#">главная</a></li>
+                <li><a href = "#home">главная</a></li>
                 <li><a href = "#services">услуги</a></li>
                 <li><a href = "#price">цены</a></li>
                 <li class="z2"><a href = "#contacts">контакты</a></li>
@@ -80,7 +80,15 @@
             </div>
 
             <div class="home-img br-12">
-                <img class="br-12" src='images/pic-3.png'/>
+                <img class="slide slide-current br-12"
+                    src="images/pic-3.png"
+                    alt=""
+                    aria-hidden="true">
+
+                <img class="slide slide-next br-12"
+                    src="images/pic-1.jpg"
+                    alt=""
+                    aria-hidden="true">
             </div>
         </div>
 
@@ -123,7 +131,8 @@
                     pattern="375[0-9]{9}" /*value="+375"*/ placeholder="+375000000000">
             </div>
             
-            <br>
+            <p id="form-status" class="form-status"></p>
+
             <div class="row break-words form-row-buttons mt-3">
                 <button class="help-button tl-16 tr-8 bl-16 br-8" id="button-send" onclick="sendTelegramMessage()">Оставить заявку</button>
                 <a href="#price" class="price-button centered tl-8 tr-16 bl-8 br-16" id="button-price">Цены</a>
@@ -136,7 +145,7 @@
     <br>
     <br>
     <h1 id="services" class="title">Предоставляемые услуги</h1>
-    <div id="price" class="resp-row">
+    <div class="resp-row">
         <div class="card centered tl-32 tr-12 bl-12 br-12 service-card">
             <div class="col-center-between">
                 <div>
@@ -384,15 +393,13 @@
     <br><br><br>
     <div class="bottombar row mobile-column tl-32 tr-32 align-center">
         <div class="logo-bottom"></div>
-        <div class="row mobile-row">
+        <div class="row mobile-row footer-lists">
             <ul id="has-title">
                 <li><p class="purple">Клиентам и компаниям</p></li>
                 <li><a class="purple" href = "#price">цены</a></li>
                 <li><a class="purple" href = "#adv">преимущества</a></li>
                 <li><a class="purple" href = "#services">типы услуг</a></li>
             </ul>
-
-            <div style="min-width: 80px; width: 200px"></div>
 
             <ul id="has-title">
                 <li><p class="purple">Контакты</p></li>

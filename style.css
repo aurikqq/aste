@@ -157,12 +157,15 @@ a {
 
 .logo-bottom {
     z-index: 1;
-    align-items: center;
-    width: 12%;
-    height: 80%;
+    display: block;
+    flex: 0 0 160px;
+    width: 160px;
+    height: 70px;
     background-color: var(--accent);
     -webkit-mask: url(images/logo.svg) no-repeat center;
-    mask: url(images/logo.svg) no-repeat center / contain;
+    -webkit-mask-size: contain;
+    mask: url(images/logo.svg) no-repeat center;
+    mask-size: contain;
 }
 
 .topbar li {
@@ -206,6 +209,36 @@ ul.no-marker > li {
     text-decoration-inset: -5px;
 }
 
+.theme-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--font);
+    padding: 8px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.theme-toggle svg {
+    display: block;
+    color: var(--font);
+    stroke: currentColor;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .card {
     background-color: var(--card);
     padding: 20px 1%;
@@ -243,19 +276,25 @@ ul.no-marker > li {
     overflow: hidden;
     padding: 24px 4%;
     box-shadow: 0px -8px 16px var(--shadow);
-    height: 180px;
+    min-height: 180px;
 }
 
-.home-img:before {
-    content: '';
-    position:absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(farthest-side at 60% 70%, transparent 5%, var(--card) 80%);
-    z-index: 1;
-    border-bottom-right-radius: 12px;
+.footer-lists {
+    gap: clamp(24px, 6vw, 120px);
+}
+
+.home-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        farthest-side at 60% 70%,
+        transparent 5%,
+        var(--card) 80%
+    );
+    z-index: 10;
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .home-img {
@@ -272,113 +311,127 @@ ul.no-marker > li {
     display: block;
 }
 
+.home-img .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-img .slide-current {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+}
+
+.home-img .slide-next {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 700ms ease-in-out;
+}
+
+.home-img .slide-next.is-visible {
+    opacity: 1;
+}
+
 .form-row-buttons {
-    display: flex;
-    gap: 1%;
-    align-items: center;
+    position: relative;
+    height: 100px;
 }
 
-.form-row-buttons .help-button,
-.form-row-buttons .price-button {
-    /* animate flex/width/opacity and border-radius for smooth size change */
-    transition: flex 300ms cubic-bezier(.2,.8,.2,1),
-                width 300ms cubic-bezier(.2,.8,.2,1),
-                opacity 220ms ease,
-                padding 220ms ease,
-                border-radius 220ms cubic-bezier(.2,.8,.2,1);
-    flex-basis: 0;
-    flex-grow: 1;
-    min-width: 0;
-    overflow: hidden;
-}
 
-/* ensure anchor-based theme-toggle uses page text color */
-.theme-toggle {
-    color: var(--font);
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    padding: 6px;
-    margin-right: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.theme-toggle svg {
-    display: inline-block;
-    vertical-align: middle;
-    pointer-events: none; /* allow click on button, not individual SVG paths */
-}
-
-/* Hamburger menu button (hidden on desktop, shown via media query below) */
 .mobile-menu-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--font);
+    width: 40px;
+    height: 40px;
+    padding: 8px;
     display: none;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border: 0;
     cursor: pointer;
-    padding: 4px;
-    -webkit-tap-highlight-color: transparent;
 }
+
 .mobile-menu-toggle span {
     display: block;
-    width: 100%;
+    width: 22px;
     height: 2px;
     background-color: var(--font);
     border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.2s ease;
-}
-.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-.mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* initial proportions: help 71% / price 26% (approx) */
-.form-row-buttons .help-button { flex: 71; }
-.form-row-buttons .price-button { flex: 26; }
-
-/* Hover/expanded behavior handled via JS classes: expanded / collapsed */
-.form-row-buttons .help-button.expanded,
-.form-row-buttons .price-button.expanded,
-.form-row-buttons .help-button:hover,
-.form-row-buttons .price-button:hover {
-    flex: 100 !important;
-    border-radius: 16px !important;
 }
 
-.form-row-buttons .help-button.collapsed,
-.form-row-buttons .price-button.collapsed {
-    flex: 0 !important;
-    width: 0 !important;
-    opacity: 0;
-    padding: 0 !important;
-    margin: 0 !important;
-}
 
-/* keep an explicit transition for the collapse */
 .form-row-buttons .help-button,
 .form-row-buttons .price-button {
-    transition: all 220ms cubic-bezier(.2,.8,.2,1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-width: 0;
+    min-height: 100px;
+    padding: 10px 2%;
+    overflow: hidden;
+    white-space: pretty;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition:
+        width 280ms cubic-bezier(.2,.8,.2,1),
+        border-radius 280ms cubic-bezier(.2,.8,.2,1),
+        opacity 180ms ease;
+
+    z-index: 1;
 }
 
-/* Active (press) shrink effect */
+.form-row-buttons .help-button {
+    left: 0;
+    width: 71%;
+    font-size: clamp(0.75rem, 4cqw, 1.6rem);
+}
+
+.form-row-buttons .price-button {
+    right: 0;
+    width: 26%;
+    font-size: clamp(0.75rem, 4cqw, 1.6rem);
+    text-decoration: none;
+}
+
+.form-row-buttons .help-button:hover,
+.form-row-buttons .help-button:focus-visible,
+.form-row-buttons .price-button:hover,
+.form-row-buttons .price-button:focus-visible {
+    width: 100%;
+    border-radius: 16px;
+    z-index: 2;
+}
+
+.form-row-buttons:has(.help-button:hover) .price-button,
+.form-row-buttons:has(.help-button:focus-visible) .price-button,
+.form-row-buttons:has(.price-button:hover) .help-button,
+.form-row-buttons:has(.price-button:focus-visible) .help-button {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .form-row-buttons .help-button:active,
 .form-row-buttons .price-button:active {
     transform: scale(0.95);
 }
 
-/* ensure smooth collapse for price button */
-.form-row-buttons .price-button {
-    transition: flex 220ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease, width 220ms ease, padding 220ms ease;
+.form-row-buttons .help-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
-
-/* small safety: make buttons not overflow container */
-.form-row-buttons .help-button, .form-row-buttons .price-button { white-space: wrap; }
 
 
 #container {
@@ -470,7 +523,7 @@ input {
     min-height: 100px;
     background-color: var(--accent);
     color: var(--bg);
-    font-size: 180%;
+    font-size: clamp(1rem, 0.7rem + 1.6vw, 1.6rem);
     font-weight: 700;
     border-width: 0;
     padding: 10px 1%;
@@ -484,7 +537,7 @@ input {
     min-height: 100px;
     background-color: var(--accent);
     color: var(--bg);
-    font-size: 180%;
+    font-size: clamp(1rem, 0.7rem + 1.6vw, 1.6rem);
     font-weight: 700;
     border-width: 0;
     padding: 10px 1%;
@@ -493,6 +546,20 @@ input {
     justify-content: center;
     text-align: center;
     text-decoration: none; /* remove underline for <a> */
+}
+
+.form-status {
+    margin-top: 10px;
+    min-height: 1.3em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.form-status.success {
+    color: #3fae6a;
+}
+.form-status.error {
+    color: #e0555f;
 }
 
 .topbar::before {
@@ -637,8 +704,16 @@ input {
     order: 2;
 }
 .hidden { display: none; }
-.home-main-card { width: 67%; min-height: 600px; padding: 2% 1% 0 2%; position: relative; }
-.col-between { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.home-main-card { width: 67%; min-height: 600px; padding: 2% 1% 2% 2%; position: relative; }
+.col-between {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 20;
+}
 .z2 { z-index: 2; }
 .pad-left-0 { padding-left: 0 !important; }
 .home-form-card { width: 31%; min-height: 600px; height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
@@ -775,7 +850,6 @@ input {
     .form-row-buttons .price-button {
         width: 100%;
         min-height: 60px;
-        font-size: 160%;
     }
 
     /* footer stacks vertically */
