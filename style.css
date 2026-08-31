@@ -108,10 +108,17 @@ a {
 .purple-with-bg {
     color: var(--accent);
     background-color: var(--card);
+    box-shadow: 0 0 0 3px var(--card);
     width: fit-content;
-    padding: 0.4rem 0.5rem;
-    border-radius: 12px;
+    padding: 0 0.5rem;
+    border-radius: 4px;
+    line-height: 1.5;
     font-family: "JetBrains Mono", monospace;
+
+    display: inline;
+
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .topbar {
@@ -556,7 +563,7 @@ input {
     text-align: center;
 }
 .form-status.success {
-    color: #3fae6a;
+    color: var(--font);
 }
 .form-status.error {
     color: #e0555f;
@@ -625,6 +632,9 @@ input {
 .adv-title {
     font-size: 1.4rem;
     max-width: 90%;
+    display: inline;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 .adv-line {
     flex: 1;

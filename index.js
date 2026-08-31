@@ -158,12 +158,29 @@ function sendTelegramMessage() {
     const device = deviceEl ? deviceEl.value : '';
     const problem = problemEl ? problemEl.value : '';
 
+    const problemNames = {
+        printer: "Принтер",
+        network: "Сеть",
+        software: "Программное обеспечение",
+        pc: "Компьютер",
+        server: "Сервер"
+    };
+
+    const deviceNames = {
+        repair: "Необходим ремонт техники",
+        portals: "Проблема со входом на порталы",
+        install: "Установка программ",
+        networksetup: "Настройка сети и печати",
+        serversetup: "Настройка сервера"
+    };
+
+
     const text =
         '<b>Новая заявка на обслуживание</b>\n\n' +
         '  - Имя: ' + name + '\n' +
         '  - Телефон: ' + phone + '\n' +
-        '  - Сломалось: ' + device + '\n' +
-        '  - Проблема: ' + problem;
+        '  - Сломалось: ' + deviceNames[device] || device + '\n' +
+        '  - Проблема: ' + problemNames[problem] || problem;
 
     if (statusEl) {
         statusEl.textContent = '';
@@ -173,14 +190,6 @@ function sendTelegramMessage() {
 
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
-        // 'application/json' is not a CORS-"simple" content type, so the
-        // browser first sends a preflight OPTIONS request. If the Worker
-        // doesn't explicitly answer OPTIONS with CORS headers, the browser
-        // blocks the real POST before it ever reaches Telegram — the request
-        // works fine from curl/Postman (no CORS involved) but silently fails
-        // from the site. 'text/plain' is a "simple" type and skips preflight;
-        // the Worker should read the raw body text and JSON.parse() it rather
-        // than relying on the Content-Type header.
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ text: text, chat_id: 1104899353, parse_mode: 'html' })
     })
