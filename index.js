@@ -181,7 +181,6 @@ function sendTelegramMessage() {
             problemText = "undefined";
             break; 
     }
-
     switch (device) {
         case "printer":
             deviceText = "Принтер";
