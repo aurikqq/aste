@@ -179,8 +179,8 @@ function sendTelegramMessage() {
         '<b>Новая заявка на обслуживание</b>\n\n' +
         '  - Имя: ' + name + '\n' +
         '  - Телефон: ' + phone + '\n' +
-        '  - Сломалось: ' + deviceNames[device] || device + '\n' +
-        '  - Проблема: ' + problemNames[problem] || problem;
+        '  - Сломалось: ' + deviceNames[device] + '\n' +
+        '  - Проблема: ' + problemNames[problem];
 
     if (statusEl) {
         statusEl.textContent = '';
@@ -189,6 +189,7 @@ function sendTelegramMessage() {
     if (sendBtn) sendBtn.disabled = true;
 
     console.log(device, problem, deviceNames, problemNames)
+    console.log(device in deviceNames, problem in problemNames)
 
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
