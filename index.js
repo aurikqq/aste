@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 const postData = async(url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
