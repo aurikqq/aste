@@ -159,6 +159,8 @@ function sendTelegramMessage() {
     const problem = problemEl ? problemEl.value : '';
 
     const deviceText = "" 
+    const problemText = ""
+
     switch (problem) {
         case "repair":
             problemText = "Необходим ремонт техники";
@@ -180,7 +182,6 @@ function sendTelegramMessage() {
             break; 
     }
 
-    const problemText = ""
     switch (device) {
         case "printer":
             deviceText = "Принтер";
