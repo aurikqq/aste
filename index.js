@@ -29,10 +29,8 @@ $(document).ready(function() {
     setInterval(function() {
         const nextIndex = (currentIndex + 1) % images.length;
 
-        // Загружаем следующую картинку во второй слой
         next.src = images[nextIndex];
 
-        // Плавно показываем её
         next.classList.add('is-visible');
 
         // После завершения анимации делаем её основной
@@ -46,8 +44,6 @@ $(document).ready(function() {
     }, 5000);
 });
 
-
-// theme initialization with persistence
 (function(){
     const saved = localStorage.getItem('theme');
     if (saved === 'dark' || saved === 'light') {
