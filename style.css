@@ -817,11 +817,13 @@ input {
     .home-main-card {
         width: 100%;
         min-height: 0;
-        padding: 6% 5% 0 5%;
+        padding: 6% 5% 6% 5%;
     }
     .home-form-card {
         width: 100%;
         min-height: 0;
+        padding-bottom: 6%;
+        margin-bottom: 0;
     }
     /* decorative hero photo overlaps text at narrow widths — hide it */
     .home-img {
@@ -858,8 +860,9 @@ input {
     }
     .form-row-buttons .help-button,
     .form-row-buttons .price-button {
-        width: 100%;
         min-height: 60px;
+        font-size: larger;
+        text-wrap: normal;
     }
 
     /* footer stacks vertically */

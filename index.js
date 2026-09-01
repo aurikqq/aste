@@ -188,6 +188,8 @@ function sendTelegramMessage() {
     }
     if (sendBtn) sendBtn.disabled = true;
 
+    print(device, problem, deviceNames, problemNames)
+
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
