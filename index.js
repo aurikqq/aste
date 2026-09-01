@@ -33,7 +33,6 @@ $(document).ready(function() {
 
         next.classList.add('is-visible');
 
-        // После завершения анимации делаем её основной
         setTimeout(function() {
             current.src = images[nextIndex];
             next.classList.remove('is-visible');
