@@ -203,6 +203,8 @@ function sendTelegramMessage() {
             break; 
     }
 
+    console.log(device, deviceText, problem, problemText)
+
     const text =
         '<b>Новая заявка на обслуживание</b>\n\n' +
         '  - Имя: ' + name + '\n' +
