@@ -158,8 +158,8 @@ function sendTelegramMessage() {
     const device = deviceEl ? deviceEl.value : '';
     const problem = problemEl ? problemEl.value : '';
 
-    const deviceText = "" 
-    const problemText = ""
+    const deviceText = "";
+    const problemText = "";
 
     switch (problem) {
         case "repair":
