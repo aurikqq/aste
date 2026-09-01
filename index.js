@@ -158,22 +158,49 @@ function sendTelegramMessage() {
     const device = deviceEl ? deviceEl.value : '';
     const problem = problemEl ? problemEl.value : '';
 
-    const problemNames = {
-        printer: "Принтер",
-        network: "Сеть",
-        software: "Программное обеспечение",
-        pc: "Компьютер",
-        server: "Сервер"
-    };
+    const deviceText = "" 
+    switch (problem) {
+        case "repair":
+            problemText = "Необходим ремонт техники";
+            break;
+        case "portals":
+            problemText = "Проблема со входом на порталы";
+            break;
+        case "install":
+            problemText = "Установка программ";
+            break;
+        case "networksetup":
+            problemText = "Настройка сети и печати";
+            break;
+        case "serversetup":
+            problemText = "Настройка сервера";
+            break;
+        default:
+            problemText = "undefined";
+            break; 
+    }
 
-    const deviceNames = {
-        repair: "Необходим ремонт техники",
-        portals: "Проблема со входом на порталы",
-        install: "Установка программ",
-        networksetup: "Настройка сети и печати",
-        serversetup: "Настройка сервера"
-    };
-
+    const problemText = ""
+    switch (device) {
+        case "printer":
+            deviceText = "Принтер";
+            break;
+        case "network":
+            deviceText = "Сеть";
+            break;
+        case "software":
+            deviceText = "ПО";
+            break;
+        case "pc":
+            deviceText = "Компьютер";
+            break;
+        case "server":
+            deviceText = "Сервер";
+            break;
+        default:
+            deviceText = "undefined";
+            break; 
+    }
 
     const text =
         '<b>Новая заявка на обслуживание</b>\n\n' +
@@ -187,8 +214,6 @@ function sendTelegramMessage() {
         statusEl.className = 'form-status';
     }
     if (sendBtn) sendBtn.disabled = true;
-
-    console.log(device, problem, deviceNames, problemNames, device in deviceNames, problem in problemNames)
 
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
