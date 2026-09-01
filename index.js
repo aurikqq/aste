@@ -209,8 +209,8 @@ function sendTelegramMessage() {
         '<b>Новая заявка на обслуживание</b>\n\n' +
         '  - Имя: ' + name + '\n' +
         '  - Телефон: ' + phone + '\n' +
-        '  - Сломалось: ' + deviceNames[device] + '\n' +
-        '  - Проблема: ' + problemNames[problem];
+        '  - Сломалось: ' + deviceText + '\n' +
+        '  - Проблема: ' + problemText;
 
     if (statusEl) {
         statusEl.textContent = '';
