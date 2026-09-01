@@ -59,14 +59,12 @@ $(document).ready(function() {
         updateThemeIcon();
     }
 
-    // follow system only if user hasn't chosen explicitly
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
         if (!localStorage.getItem('theme')) {
             setTheme(event.matches ? "dark" : "light", false);
         }
     });
 
-    // expose helper so toggleTheme can use it
     window.setTheme = setTheme;
 })();
 
@@ -93,7 +91,6 @@ function toggleTheme() {
     }
 }
 
-// mobile hamburger menu
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const links = document.getElementById('topbar-links');
@@ -104,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
-        // close the menu after tapping a link
         links.querySelectorAll('a').forEach(function(a) {
             a.addEventListener('click', function() {
                 links.classList.remove('mobile-open');
@@ -113,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // close the menu if the viewport is resized back to desktop width
         window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 links.classList.remove('mobile-open');
