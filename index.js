@@ -188,8 +188,7 @@ function sendTelegramMessage() {
     }
     if (sendBtn) sendBtn.disabled = true;
 
-    console.log(device, problem, deviceNames, problemNames)
-    console.log(device in deviceNames, problem in problemNames)
+    console.log(device, problem, deviceNames, problemNames, device in deviceNames, problem in problemNames)
 
     fetch('https://tg-proxy.awergiony.workers.dev', {
         method: 'POST',
