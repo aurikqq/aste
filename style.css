@@ -629,21 +629,21 @@ input {
     margin-bottom: 10px;
 }
 
-.adv-title {
+.advs-title {
     font-size: 1.4rem;
     max-width: 90%;
     display: inline;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
-.adv-line {
+.advs-line {
     flex: 1;
     margin-left: 1.35em;
     height: 1px;
     color: var(--accent);
     width: 75%;
 }
-.adv-text {
+.advs-text {
     padding-left: 4%;
     padding-right: 6%;
     font-size: 1.2rem;
@@ -732,7 +732,7 @@ input {
 .service-card { width: 32%; min-height: 500px; }
 .col-center-between { display:flex; flex-direction:column; align-items:center; justify-content:space-between; height:100%; }
 .row-header { padding: 1% 1% 2% 1%; align-items: center; }
-.adv-card { width: 49%; min-height: 500px; }
+.advs-card { width: 49%; min-height: 500px; }
 .contact-card { width: 32%; min-height: 400px; }
 .col-evenly { height:100%; display:flex; flex-direction:column; justify-content:space-evenly; }
 .icon-100 { width: 100px !important; }
@@ -789,10 +789,10 @@ input {
         display: none;
     }
 
-    .adv-line {
+    .advs-line {
         margin-left: 1rem;
     }
-    .adv-title {
+    .advs-title {
         font-size: 1.2rem;
         max-width: 80%;
     }
@@ -832,20 +832,21 @@ input {
 
     /* services / advantages / contacts grids collapse to one column */
     .service-card,
-    .adv-card,
+    .advs-card,
     .contact-card {
         width: 100%;
         min-height: 0;
     }
-    .adv-text {
+    .advs
+-text {
         font-size: 1rem;
         padding-left: 0;
         padding-right: 0;
     }
-    .adv-line {
+    .advs-line {
         margin-left: 1rem;
     }
-    .adv-title {
+    .advs-title {
         font-size: 1.2rem;
         max-width: 80%;
     }
