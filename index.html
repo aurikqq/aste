@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,9 @@
     <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
-    <script src="./index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" defer></script>
+    <script src="./index.js" defer></script>
 </head>
 
 <body>
@@ -48,14 +48,17 @@
                 </button>
             </li>
 
-            <div class="topbar-links" id="topbar-links">
+            <nav id="topbar-links">
                 <li><a href = "#home">главная</a></li>
                 <li><a href = "#services">услуги</a></li>
                 <li><a href = "#price">цены</a></li>
                 <li class="z2"><a href = "#contacts">контакты</a></li>
-            </div>
+            </nav>
         </div>
     </ul>
+
+    <main>
+    <section>
     <div id="home" class="resp-row">
         <div class="card tl-32 tr-12 bl-32 br-12 home-main-card">
             <div class="col-between">
@@ -94,7 +97,7 @@
             </div>
         </div>
 
-        <div class="card tl-12 tr-32 bl-12 br-32 home-form-card">
+        <form class="card tl-12 tr-32 bl-12 br-32">
             <h2 class="text-center">Нужна помощь?</h2>
             <br>
 
@@ -130,7 +133,7 @@
             <div>
                 <p>Ваш номер</p>
                 <input type="tel" id="number" name="number"
-                    pattern="375[0-9]{9}" /*value="+375"*/ placeholder="+375000000000">
+                    pattern="375[0-9]{9}" placeholder="+375000000000">
             </div>
             
             <p id="form-status" class="form-status"></p>
@@ -139,11 +142,13 @@
                 <button class="help-button tl-16 tr-8 bl-16 br-8" id="button-send" onclick="sendTelegramMessage()">Оставить заявку</button>
                 <a href="#price" class="price-button centered tl-8 tr-16 bl-8 br-16" id="button-price">Цены</a>
             </div>
-        </div>
+        </form>
     </div>
     <p class="purple" style="padding-left: 3%; margin-top:6px">
         ↓ подробная информация ниже</p>
+    </section>
 
+    <section>
     <br>
     <br>
     <h1 id="services" class="title">Предоставляемые услуги</h1>
@@ -160,8 +165,8 @@
                 </div>
                 
                 <div>
-                <h1 id="price" class="services-price purple">от 20 руб/месяц</h1>
-                <h1 class="services-price purple" style="font-size: large;">за 1 рабочее место</h1>
+                <p id="price" class="services-price purple">от 20 руб/месяц</p>
+                <p class="services-price purple" style="font-size: large;">за 1 рабочее место</p>
 
                 </div>
             </div>
@@ -178,7 +183,7 @@
                     <p class="services-text">Диагностика и устранение неисправностей компьютера непосредственно на месте — в офисе или дома у клиента. Решение проблем с загрузкой системы, аппаратных сбоев, замены комплектующих и прочих неполадок без необходимости отвозить технику в сервисный центр.</p>
                 </div>
 
-                <h1 class="services-price purple">от 45 руб.</h1>
+                <p class="services-price purple">от 45 руб.</p>
             </div>
         </div>
 
@@ -193,7 +198,7 @@
                     <p class="services-text">Настройка локальной сети, роутеров и точек доступа для стабильного подключения всех устройств в офисе. Организация общего доступа к принтерам и МФУ по сети, устранение проблем с подключением интернета.</p>
                 </div>
 
-                <h1 class="services-price purple">от 25 руб.</h1>
+                <p class="services-price purple">от 45 руб.</p>
             </div>
         </div>
     </div>
@@ -203,14 +208,14 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/web.png" alt="Решение проблем с сайтами и порталами">
+                        src="https://img.icons8.ru/3d-fluency/375/web.png" alt="Решение проблем с сайтами и порталами" loading="lazy">
 
                     <h3 class="services-title">Удаленное решение проблем с входом на порталы</h3>
 
                     <p class="services-text">Восстановление доступа к государственным, банковским и корпоративным порталам: настройка электронной подписи, сертификатов и прочего необходимого для корректной работы личных кабинетов и онлайн-сервисов</p>
                 </div>
 
-                <h1 class="services-price purple">от 25 руб.</h1>
+                <p class="services-price purple">от 25 руб.</p>
             </div>
         </div>
 
@@ -218,14 +223,14 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/software.png" alt="Помощь с программным обеспечением">
+                        src="https://img.icons8.ru/3d-fluency/375/software.png" alt="Помощь с программным обеспечением" loading="lazy">
 
                     <h3 class="services-title">Удаленная помощь с установкой и настройкой программного обеспечения</h3>
 
                     <p class="services-text">Установка, настройка, обновление, активация необходимых программ. Решение конфликтов совместимости, подготовка системы под конкретные задачи пользователя.</p>
                 </div>
 
-                <h1 class="services-price purple">от 25 руб.</h1>
+                <p class="services-price purple">от 25 руб.</p>
             </div>
         </div>
 
@@ -233,68 +238,70 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/stack.png" alt="Настройка сервера">
+                        src="https://img.icons8.ru/3d-fluency/375/stack.png" alt="Настройка сервера" loading="lazy">
 
                     <h3 class="services-title">Настройка сервера</h3>
 
                     <p class="services-text">Установка и конфигурация серверного оборудования и программного обеспечения: настройка операционной системы сервера, организация общих сетевых ресурсов, разграничение прав доступа, резервное копирование данных и обеспечение стабильной работы серверной инфраструктуры компании.</p>
                 </div>
 
-                <h1 class="services-price purple">цена договорная</h1>
+                <p class="services-price purple">цена договорная</p>
             </div>
         </div>
     </div>
 
     <p class="purple text-center">Все вышеперечисленные услуги входят в обслуживание компаний,
         также возможны и другие по договорённости</p>
+    </section>
 
-
+    <section>
     <br>
     <br>
     <h1 id="clients" class="title">Компании-клиенты</h1>
 
     <div id='container'>
         <div class='scroll'>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png" loading="lazy"></div>
 
-            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png" loading="lazy"></div>
         </div>
         <div class='fade'></div>
     </div>
+    </section>
 
-
+    <section>
     <br>
     <br>
     <h1 id="adv" class="title">Преимущества</h1>
@@ -343,8 +350,9 @@
 
         </div>
     </div>
+    </section>
 
-
+    <section>
     <br>
     <br>
     <h1 id="contacts" class="title">Контакты</h1>
@@ -353,7 +361,7 @@
         <div class="card centered break-words tl-32 tr-12 bl-32 br-12 contact-card">
             <div class="centered col-evenly">
                 <div>
-                    <img src="https://img.icons8.ru/3d-fluency/375/secured-letter.png" class="icon-100" alt="Наша электронная почта">
+                    <img src="https://img.icons8.ru/3d-fluency/375/secured-letter.png" class="icon-100" alt="Наша электронная почта" loading="lazy">
 
                     <h3 class="mt-10px">Электронная почта</h3>
                 </div>
@@ -365,7 +373,7 @@
         <div class="card centered break-words tl-12 tr-12 bl-12 br-12 contact-card">
             <div class="centered col-evenly">
                 <div>
-                    <img src="https://img.icons8.ru/3d-fluency/375/office-phone.png" class="icon-100" alt="Наш телефон">
+                    <img src="https://img.icons8.ru/3d-fluency/375/office-phone.png" class="icon-100" alt="Наш телефон" loading="lazy">
 
                     <h3 class="mt-10px">Телефон</h3>
                 </div>
@@ -377,7 +385,7 @@
         <div class="card centered break-words tl-12 tr-32 bl-12 br-32 contact-card">
             <div class="centered col-between">
                 <div class="mobile-row-short">
-                    <img src="images/tg.svg" class="icon-100" alt="Наш Telegram">
+                    <img src="images/tg.svg" class="icon-100" alt="Наш Telegram" loading="lazy">
 
                     <h2><a href="https://t.me/aste_by">Telegram</a></h2>
                 </div>
@@ -385,15 +393,17 @@
                 <hr class="full-hr">
 
                 <div class="mobile-row-short">
-                    <img src="images/viber.png" class="icon-100" alt="Наш Viber">
+                    <img src="images/viber.png" class="icon-100" alt="Наш Viber" loading="lazy">
                     <h2><a href="viber://chat?number=%2B375295893594">Viber</a></h2>
                 </div>
             </div>            
         </div>
     </div>
+    </section>
+    </main>
 
     <br><br><br>
-    <div class="bottombar row mobile-column tl-32 tr-32 align-center">
+    <footer class="row mobile-column tl-32 tr-32 align-center">
         <div class="logo-bottom"></div>
         <div class="row mobile-row footer-lists">
             <ul id="has-title">
@@ -414,7 +424,7 @@
             </ul>
         </div>
         <p class="purple text-center mobile-row">Все права защищены.<br><br>© 2026 aste.by<br><br>Индивидуальный предприниматель<br>Астахов Евгений Вячеславович</p>
-    </div>
+    </footer>
 
 </body>
 </html>

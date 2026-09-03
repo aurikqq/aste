@@ -627,6 +627,7 @@ input {
 }
 .services-price {
     margin-bottom: 10px;
+    font-size: larger;
 }
 
 .advs-title {
@@ -700,7 +701,7 @@ input {
 
 /* Utility classes generated to replace inline styles in site.html */
 .no-padding { padding: 0 !important; }
-.topbar-links { display: flex; }
+nav { display: flex; }
 .topbar-item { z-index: 1; }
 .topbar-right {
     display: flex;
@@ -726,7 +727,7 @@ input {
 }
 .z2 { z-index: 2; }
 .pad-left-0 { padding-left: 0 !important; }
-.home-form-card { width: 31%; min-height: 600px; height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
+form { width: 31%; min-height: 600px; height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
 .text-center { text-align: center; }
 .mt-3 { margin-top: 3%; }
 .service-card { width: 32%; min-height: 500px; }
@@ -867,7 +868,7 @@ input {
     }
 
     /* footer stacks vertically */
-    .bottombar {
+    footer {
         align-items: flex-start;
         height: auto;
         gap: 20px;
