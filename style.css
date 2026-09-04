@@ -136,7 +136,7 @@ header {
     box-shadow: 0 5px 12px var(--shadow);
 }
 
-.topbar.scroll {
+header.scroll {
     box-sizing: border-box;
     padding: 12px 2%;
     background-color: var(--bars);
@@ -569,7 +569,7 @@ input {
     color: #e0555f;
 }
 
-.topbar::before {
+header::before {
     content: "";
     position: absolute;
     background-color: transparent;
@@ -583,7 +583,7 @@ input {
     z-index: 0;
 }
 
-.topbar::after {
+header::after {
     content: "";
     position: absolute;
     background-color: transparent;
@@ -597,11 +597,11 @@ input {
     z-index: 0;
 }
 
-.topbar.no-after:after {
+header.no-after:after {
     content: none;
 }
 
-.topbar.no-before:before {
+header.no-before:before {
     content: none;
 }
 
@@ -613,7 +613,7 @@ input {
     margin: 8px 0 12px 1.5%;
     position: relative;
     display: inline-block;
-    font-size: larger;
+    font-size: xx-large;
 }
 
 .services-icon {
@@ -622,13 +622,15 @@ input {
 }
 .services-title {
     margin-bottom: 4%;
+    font-size: x-large;
 }
 .services-text {
     padding: 0 2%;
+    font-size: large;
 }
 .services-price {
     margin-bottom: 10px;
-    font-size: larger;
+    font-size: xx-large;
 }
 
 .advs-title {
@@ -648,7 +650,7 @@ input {
 .advs-text {
     padding-left: 4%;
     padding-right: 6%;
-    font-size: 1.2rem;
+    font-size: large;
 }
 
 .tl-32 {
@@ -712,7 +714,7 @@ nav { display: flex; }
 /* on desktop the burger is hidden, so without this the theme button
    (now first in the DOM so it can sit left-of-burger on mobile) would
    render before the nav links instead of after them */
-#topbar-links {
+.topbar-links {
     order: 2;
 }
 .hidden { display: none; }

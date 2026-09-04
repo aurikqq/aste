@@ -1,22 +1,22 @@
 $(document).scroll(function() {
     if($(document).scrollTop() >= 100) {
-        $('.topbar').addClass('no-after');
-        $('.topbar').addClass('no-before');
-        $('.topbar').addClass('scroll');
+        $('header').addClass('no-after');
+        $('header').addClass('no-before');
+        $('header').addClass('scroll');
         $('.logo').toggle(false);
     } else {
-        $('.topbar').removeClass('no-after');
-        $('.topbar').removeClass('no-before');
-        $('.topbar').removeClass('scroll');
+        $('header').removeClass('no-after');
+        $('header').removeClass('no-before');
+        $('header').removeClass('scroll');
         $('.logo').toggle(true);
     }
 });
 
 $(document).ready(function() {
     const images = [
-        "images/pic-1.jpg",
-        "images/pic-2.jpg",
-        "images/pic-3.png"
+        "images/pic-1.webp",
+        "images/pic-2.webp",
+        "images/pic-3.webp"
     ];
 
     let currentIndex = 2;
