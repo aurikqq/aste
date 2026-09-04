@@ -3,21 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Обслуживание и помощь с компьютерной техникой | aste</title>
     <meta name="description"
-        content="Помощь и обслуживание компьютерной тенхики для компаний в Гродно и Беларуси по невысоким ценам.">
+        content="Помощь и обслуживание компьютерной техники для компаний в Гродно и Беларуси по невысоким ценам.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "url": "https://aste.by/",
+                "logo": "https://aste.by/images/logo.svg",
+                "name": "aste",
+                "description": "Обслуживание и ремонт компьютерной техники, настройка сетевого и серверного оборудования для компаний и организаций в Гродно и Беларуси по выгодным ценам."
+            },
+            {
+                "@type": "Service",
+                "name": "Обслуживание компьютеров",
+                "description": "Техническое обслуживание и поддержка компьютерной техники компаний и организаций.",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "aste",
+                    "url": "https://aste.by/"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Помощь с установкой и настройкой программного обеспечения",
+                "description": "Установка, настройка, обновление, активация необходимых программ.",
+                "provider": {
+                    "@id": "https://aste.by/#org"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Настройка сервера",
+                "description": "Установка и конфигурация серверного оборудования и программного обеспечения.",
+                "provider": {
+                    "@id": "https://aste.by/#org"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Ремонт компьютера",
+                "description": "Диагностика и устранение неисправностей компьютера.",
+                "provider": {
+                    "@id": "https://aste.by/#org"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Настройка сети, маршрутизатора, сетевой печати",
+                "description": "Настройка локальной сети, роутеров и точек доступа, принтеров, МФУ.",
+                "provider": {
+                    "@id": "https://aste.by/#org"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Решение проблем со входом на порталы",
+                "description": "Восстановление доступа к государственным, банковским и корпоративным порталам.",
+                "provider": {
+                    "@id": "https://aste.by/#org"
+                }
+            },
+            {
+                "@type": "LocalBusiness",
+                "name": "aste",
+                "description": "Обслуживание и ремонт компьютерной техники, настройка сетевого и серверного оборудования для компаний и организаций в Гродно и Беларуси по выгодным ценам.",
+                "url": "https://aste.by/",
+                "@id": "https://aste.by/#org",
+                "telephone": "+375295893594",
+                "email": "ast8080@mail.ru",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Гродно",
+                    "addressCountry": "BY"
+                }
+            },
+            "areaServed": [
+            {
+                "@type": "City",
+                "name": "Гродно"
+            },
+            {
+                "@type": "Country",
+                "name": "Беларусь"
+            }
+            ]
+        ]
+    }
+    </script>
+
+    <meta property="og:title"
+      content="Обслуживание и помощь с компьютерной техникой">
+
+    <meta property="og:site_name"
+      content="Обслуживание и помощь с компьютерной техникой для компаний и организаций в Гродно и Беларуси">
+
+    <meta property="og:description"
+        content="Помощь и обслуживание компьютерной техники для компаний в Гродно и Беларуси по невысоким ценам.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aste.by/">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href=
+        "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,400..700;1,400..700&">
     <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&" rel="stylesheet">
+    <link rel="canonical" href="https://aste.by/">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" defer></script>
     <script src="./index.js" defer></script>
 </head>
 
 <body>
 
-    <ul class="topbar">
+    <header>
         <li class="row logo no-padding">
             <a href="/" class="no-padding">
                 <div class="logo-img"></div></a>
@@ -55,7 +162,7 @@
                 <li class="z2"><a href = "#contacts">контакты</a></li>
             </nav>
         </div>
-    </ul>
+    </header>
 
     <main>
     <section>
@@ -86,12 +193,12 @@
 
             <div class="home-img br-12">
                 <img class="slide slide-current br-12"
-                    src="images/pic-3.png"
+                    src="images/pic-3.webp"
                     alt="Обслуживание компаний"
                     aria-hidden="true">
 
                 <img class="slide slide-next br-12"
-                    src="images/pic-1.jpg"
+                    src="images/pic-1.webp"
                     alt="Ремонт компьютеров"
                     aria-hidden="true">
             </div>
@@ -127,13 +234,13 @@
 
             <div>
                 <p>Ваше имя</p>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" autocomplete="name">
             </div>
             
             <div>
                 <p>Ваш номер</p>
-                <input type="tel" id="number" name="number"
-                    pattern="375[0-9]{9}" placeholder="+375000000000">
+                <input type="tel" id="number" name="number" autocomplete="tel"
+                    pattern="\+375[0-9]{9}" placeholder="+375000000000">
             </div>
             
             <p id="form-status" class="form-status"></p>
@@ -151,13 +258,13 @@
     <section>
     <br>
     <br>
-    <h1 id="services" class="title">Предоставляемые услуги</h1>
+    <h2 id="services" class="title">Предоставляемые услуги</h2>
     <div class="resp-row">
         <div class="card centered tl-32 tr-12 bl-12 br-12 service-card">
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/workstation.png" alt="Обслуживание компьютеров">
+                        src="images/icons/workstation.webp" alt="Обслуживание компьютеров">
 
                     <h3 class="services-title">Абонентское обслуживание компьютеров</h3>
 
@@ -176,7 +283,7 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/full-tool-storage-box-.png" alt="Ремонт компьютерной техники">
+                        src="images/icons/full-tool-storage-box-.webp" alt="Ремонт компьютерной техники">
 
                     <h3 class="services-title">Ремонт компьютера с выездом к клиенту</h3>
 
@@ -191,7 +298,7 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/wifi-router.png" alt="Настройка и помощь с сетью и принтером">
+                        src="images/icons/wifi-router.webp" alt="Настройка и помощь с сетью и принтером">
 
                     <h3 class="services-title">Настройка сети, маршрутизатора, сетевой печати с выездом к клиенту</h3>
 
@@ -208,9 +315,9 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/web.png" alt="Решение проблем с сайтами и порталами" loading="lazy">
+                        src="images/icons/web.webp" alt="Решение проблем с сайтами и порталами" loading="lazy">
 
-                    <h3 class="services-title">Удаленное решение проблем с входом на порталы</h3>
+                    <h3 class="services-title">Удаленное решение проблем со входом на порталы</h3>
 
                     <p class="services-text">Восстановление доступа к государственным, банковским и корпоративным порталам: настройка электронной подписи, сертификатов и прочего необходимого для корректной работы личных кабинетов и онлайн-сервисов</p>
                 </div>
@@ -223,7 +330,7 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/software.png" alt="Помощь с программным обеспечением" loading="lazy">
+                        src="images/icons/software.webp" alt="Помощь с программным обеспечением" loading="lazy">
 
                     <h3 class="services-title">Удаленная помощь с установкой и настройкой программного обеспечения</h3>
 
@@ -238,7 +345,7 @@
             <div class="col-center-between">
                 <div>
                     <img class="services-icon"
-                        src="https://img.icons8.ru/3d-fluency/375/stack.png" alt="Настройка сервера" loading="lazy">
+                        src="images/icons/stack.webp" alt="Настройка сервера" loading="lazy">
 
                     <h3 class="services-title">Настройка сервера</h3>
 
@@ -257,45 +364,45 @@
     <section>
     <br>
     <br>
-    <h1 id="clients" class="title">Компании-клиенты</h1>
+    <h2 id="clients" class="title">Компании-клиенты</h2>
 
     <div id='container'>
         <div class='scroll'>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.webp" alt="ГАООГР" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.webp" alt="Гродненская областная коллегия адвокатов" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.webp" alt="Анлиар" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.webp" alt="АркАлмаз" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.webp" alt="Аудиторское бюро" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.webp" alt="АЯКС" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.webp" alt="БелРемКор" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.webp" alt="Фобус" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.webp" alt="ГМА" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.webp" alt="Salbi" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.webp" alt="СПК Нива" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.webp" alt="СПК Путришки" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.webp" alt="Рикко Неман" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.webp" alt="СПМК" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.webp" alt="Техноклассика" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.webp" alt="ГОСН" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.webp" alt="ГроФорт" loading="lazy"></div>
 
-            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gma.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/niva.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.jpg" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.png" loading="lazy"></div>
-            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.png" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gaoogr.webp" alt="ГАООГР" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/advokaty.webp" alt="Гродненская областная коллегия адвокатов" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/anliar.webp" alt="Анлиар" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/arkalmaz.webp" alt="АркАлмаз" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/auditburo.webp" alt="Аудиторское бюро" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/ayaks.webp" alt="АЯКС" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/belremkor.webp" alt="БелРемКор" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/fobus.webp" alt="Фобус" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gma.webp" alt="ГМА" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/salbi.webp" alt="Salbi" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/niva.webp" alt="СПК Нива" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/putrishki.webp" alt="СПК Путришки" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/rikko.webp" alt="Рикко Неман" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/spmk.webp" alt="СПМК" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/technoclassica.webp" alt="Техноклассика" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/gosn.webp" alt="ГОСН" loading="lazy"></div>
+            <div class="companies-item"><img class="companies-img" src="images/companies/grofort.webp" alt="ГроФорт" loading="lazy"></div>
         </div>
         <div class='fade'></div>
     </div>
@@ -304,7 +411,7 @@
     <section>
     <br>
     <br>
-    <h1 id="adv" class="title">Преимущества</h1>
+    <h2 id="adv" class="title">Преимущества</h2>
 
     <div class="resp-row">
         <div class="card tl-32 tr-12 bl-12 br-12 advs-card">
@@ -355,13 +462,13 @@
     <section>
     <br>
     <br>
-    <h1 id="contacts" class="title">Контакты</h1>
+    <h2 id="contacts" class="title">Контакты</h2>
 
     <div class="resp-row">
         <div class="card centered break-words tl-32 tr-12 bl-32 br-12 contact-card">
             <div class="centered col-evenly">
                 <div>
-                    <img src="https://img.icons8.ru/3d-fluency/375/secured-letter.png" class="icon-100" alt="Наша электронная почта" loading="lazy">
+                    <img src="images/icons/letter.webp" class="icon-100" alt="Наша электронная почта" loading="lazy">
 
                     <h3 class="mt-10px">Электронная почта</h3>
                 </div>
@@ -373,7 +480,7 @@
         <div class="card centered break-words tl-12 tr-12 bl-12 br-12 contact-card">
             <div class="centered col-evenly">
                 <div>
-                    <img src="https://img.icons8.ru/3d-fluency/375/office-phone.png" class="icon-100" alt="Наш телефон" loading="lazy">
+                    <img src="images/icons/phone.webp" class="icon-100" alt="Наш телефон" loading="lazy">
 
                     <h3 class="mt-10px">Телефон</h3>
                 </div>
@@ -393,7 +500,7 @@
                 <hr class="full-hr">
 
                 <div class="mobile-row-short">
-                    <img src="images/viber.png" class="icon-100" alt="Наш Viber" loading="lazy">
+                    <img src="images/viber.webp" class="icon-100" alt="Наш Viber" loading="lazy">
                     <h2><a href="viber://chat?number=%2B375295893594">Viber</a></h2>
                 </div>
             </div>            

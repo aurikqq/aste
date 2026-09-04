@@ -121,7 +121,7 @@ a {
     box-decoration-break: clone;
 }
 
-.topbar {
+header {
     box-sizing: border-box;
     padding: 12px 2%;
     background-color: var(--bars);
@@ -175,7 +175,7 @@ a {
     mask-size: contain;
 }
 
-.topbar li {
+header li {
     display: flex;
     align-items: center;
 }
@@ -194,7 +194,7 @@ ul.no-marker > li {
     list-style-type: none;
 }
 
-.topbar a {
+header a {
     display: block;
     color: var(--font);
     text-align: center;
@@ -208,7 +208,7 @@ ul.no-marker > li {
     color: var(--accent);
 }
 
-.topbar a.highlighted {
+header a.highlighted {
     text-decoration: underline;
     text-decoration-color: var(--accent);
     text-decoration-thickness: 3px;
@@ -278,7 +278,7 @@ ul.no-marker > li {
     word-wrap: wrap;
 }
 
-.bottombar {
+footer {
     background-color: var(--bars);
     overflow: hidden;
     padding: 24px 4%;
@@ -613,6 +613,7 @@ input {
     margin: 8px 0 12px 1.5%;
     position: relative;
     display: inline-block;
+    font-size: larger;
 }
 
 .services-icon {
